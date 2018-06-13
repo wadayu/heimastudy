@@ -9,19 +9,19 @@ thread_look = threading.Lock()
 
 def test1(loop_num):
     global global_num
-    thread_look.acquire()
     for i in range(loop_num):
+        thread_look.acquire()
         global_num += 1
-    thread_look.release()
+        thread_look.release()
     print ('test1---%d---' %global_num)
 
 
 def test2(loop_num):
     global global_num
-    thread_look.acquire()
     for i in range(loop_num):
+        thread_look.acquire()
         global_num += 1
-    thread_look.release()
+        thread_look.release()
     print('test2---%d---' % global_num)
 
 

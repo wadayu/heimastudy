@@ -12,7 +12,7 @@ monkey.patch_all() # 将所有阻塞（比如：time.sleep）转换为gevent.tim
 
 
 def tasks(args_name):
-    for i in range(10):
+    for i in range(5):
         print ('---%s---,%d' %(args_name,i))
         time.sleep(0.5)
 
@@ -22,6 +22,12 @@ def main():
         gevent.spawn(tasks, 'work1'),
         gevent.spawn(tasks, 'work2')
     ])
+
+# def main():
+#     L = ('work1', 'work2', 'work3')
+#     gevent.joinall([
+#         gevent.spawn(tasks, i) for i in L
+#     ])
 
     '''
         gevent.joinall([                            

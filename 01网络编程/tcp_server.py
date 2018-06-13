@@ -29,7 +29,7 @@ def main():
         # 6 关闭套接字
         client_sock.close()
     # 关闭server端的套接字
-    clinet_soct.close()
+        tcp_sock.close()
 
 if __name__ == '__main__':
     main()
