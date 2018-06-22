@@ -8,14 +8,14 @@ import threading
 '''线程运行没有顺序的'''
 
 def sing():
-    for i in range(5):
-        print ("I'm singing Fadad ---%d---" %i)
+    while True:
+        print ("I'm singing Fadad ---%d---")
         time.sleep(1)
 
 
 def dance():
-    for i in range(5):
-        print ("I'm danceing JieWu ---%d---" %i)
+    while True:
+        print ("I'm danceing JieWu ---%d---")
         time.sleep(1)
 
 def main():
