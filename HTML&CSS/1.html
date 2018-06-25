@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html标签学习</title>
+</head>
+<body>
+    <!--- 标签说明 --->
+    <h1>这是一级标签</h1>
+    <h2>这是二级标签</h2>
+    <h3>这是三级标签</h3>
+    <h4>这是四级标签</h4>
+    <h5>这是五级标签</h5>
+    <h6>这是六级标签</h6>
+
+<h2>段落标签及空格大于小于标签</h2>
+    <p>段落标签</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;空格 3&lt;5 8&gt;10 2=2</p>
+
+<h2>换行标签</h2>
+    <p>前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页 <br />   <!---<br />换行标签--->
+        随着互联网技术的发展，HTML5，CSS3，前端框架的应用，<br />
+        跨平台响应式网页设计能够适应各种屏幕分辨率 <br />
+    </p>
+
+<h2>语义的标签</h2>
+    <!--- 含样式和语义的标签
+    <em>标签 行内元素，表示语气中的强调词
+    <i>标签 行内元素，表示专业词汇
+    <b>标签 行内元素，表示文档中的关键字或者产品名
+    <strong>标签 行内元素，表示非常重要的内容
+    --->
+    <p><em>跨平台</em><i>响应式</i><b>网页设计</b>能够<strong>适应各种屏幕分辨率</strong></p>
+
+<h2>显示图片</h2>
+    <img width="300" height="258" src="image/001.jpg" alt="表情图片" /> <!---alt属性 加载图片失败显示的文字--->
+
+<h2>超链接</h2>
+    <!---超链接 title当鼠标放到超链接的文字或者图片上显示提示的文字，
+    target="_blank" 点击超链接的时候重新打开一个浏览器窗口
+    target="_self"  点击超链接的时候覆盖当前的窗口 缺省值
+    --->
+    <p><a href="https://www.baidu.com" title="点击这里去百度首页" target="_blank">百度首页</a></p>
+
+<h2>有序列表</h2> <!---快速写法： ol>li*3 tab键--->
+    <ol>
+        <li>Python</li>
+        <li>Javascript</li>
+        <li>php c++</li>
+    </ol>
+
+<h2>无序列表</h2> <!---快速写法： ul>(li>a{新闻标题})*3 tab键--->
+    <ul>
+        <li><a href="">新闻标题一</a></li>
+        <li><a href="">新闻标题二</a></li>
+        <li><a href="">新闻标题三</a></li>
+    </ul>
+
+<h2>定义列表</h2>  <!---快速写法： dl>(dt+dd)*3 tab键--->
+    <dl>
+        <dt>html</dt>
+        <dd>这是设置页面的结构</dd>
+        <dt>css</dt>
+        <dd>这是设置页面的样式</dd>
+        <dt>javascript</dt>
+        <dd>这是设置页面的行为</dd>
+    </dl>
+
+<h2>表格</h2>
+    <!---
+    1、<table>标签：声明一个表格，他的常用属性如下：
+    border属性 定义表格的边框，设置值是数值
+    cellpadding属性 定义单元格内容与边框的距离，设置值是数值
+    cellspacing属性 定义单元格与单元格之间的距离，设置值是数值
+    align属性 设置整体表格相对浏览器窗口的水平对齐方式，设置值有：left|center|right
+    2、<tr>标签： 定义表格中的一行
+    3、<td>和<th>标签：定义一行中的一个单元格，td代表普通的单元格，th表示表头单元格，常用属性如下：
+    align属性 设置单元格中内容的水平对齐方式，设置值有：left|center|right
+    valign属性 设置单元格中内容的垂直对齐方式 top|middle|bottom
+    colspan属性 设置单元格水平合并，设置值是数值
+    rowspan属性 设置单元格垂直合并，设置值是数值
+    --->
+
+    <!---快捷方式：table>(tr>td*5)*6 tab键--->
+    <table width="800" height="300" border="1" align="center">
+        <tr>
+            <th colspan="5">基本个人信息</th>
+        </tr>
+        <tr>
+            <td width="15%">姓名</td>
+            <td width="25%"></td>
+            <td width="15%">年龄</td>
+            <td width="25%"></td>
+            <td width="20%" rowspan="5" align="center">个人头像信息</td>
+        </tr>
+        <tr>
+            <td>身高</td>
+            <td></td>
+            <td>体重</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>地址</td>
+            <td></td>
+            <td>邮箱</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>爱好</td>
+            <td></td>
+            <td>特长</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>手机</td>
+            <td></td>
+            <td>住址</td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

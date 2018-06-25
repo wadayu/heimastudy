@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form表单</title>
+</head>
+<body>
+
+    <form action="" method="get">
+        <h2>表单详情</h2>
+        <p>
+            <label for="username">用户名：</label><input type="text" name="username"  id="username" />
+        </p>
+        <p>
+            <label for="password">密&nbsp;&nbsp;&nbsp;码：</label><input type="password" name="password" id="password" />
+        </p>
+        <p>
+            <label>性&nbsp;&nbsp;&nbsp;别：</label>
+            <input type="radio" name="gender" value="0" id="male" /> <label for="male">男</label>
+            <input type="radio" name="gender" value="1" id="female" /> <label for="female">女</label>
+        </p>
+        <p>
+            <label>爱好：</label>
+            <input type="checkbox" name="like" value="trave" id="trave" /> <label for="trave">旅游</label>
+            <input type="checkbox" name="like" value="climb" id="climb" /> <label for="climb">爬山</label>
+            <input type="checkbox" name="like" value="game" id="game" /> <label for="game">游戏</label>
+            <input type="checkbox" name="like" value="video" id="video" /> <label for="video">电影</label>
+        </p>
+        <p>
+            <label>照片：</label><input type="file" name="photo" />
+        </p>
+        <p>
+            <label>个人介绍：</label><textarea name="introduce" /></textarea>
+        </p>
+        <p>
+            <label>籍贯：</label>
+            <select name="site">
+                <option value="0">北京市</option>
+                <option value="1">上海市</option>
+                <option value="2">天津市</option>
+                <option value="3">广州市</option>
+                <option value="4">深圳市</option>
+            </select>
+        </p>
+        <p><input type="hidden" name="id" value="1" /></p> <!---隐藏标签--->
+        <p>
+            <input type="submit" value="提交" />
+            <input type="submit" value="重置" />
+        </p>
+    </form>
+
+
+</body>
+</html>
