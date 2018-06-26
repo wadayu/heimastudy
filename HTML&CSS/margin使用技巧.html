@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margins使用技巧</title>
+
+    <style type="text/css">
+        body{
+            margin: 0px;
+        }
+
+        /* 解决margin-top塌陷的第三种方法（外边框使用伪元素类） 类似于第一种方法加边框*/
+        .clearfix:before{
+            content: '';
+            display: table;
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color:#666;
+            margin: 20px auto 0px;  /*auto左右居中*/
+
+        }
+
+        .box02{
+            width: 202px;
+            height: 156px;
+            background-color: red;
+            margin-left: 50px;
+        }
+
+        .box02 div{
+            width: 200px;
+            height: 30px;
+            background-color: green;
+            border: 1px solid yellow;
+            margin-top: -1px;
+        }
+
+        .mgtop{
+            width: 300px;
+            height: 300px;
+            background-color: gold;
+            margin: 50px auto 0px;
+            /* 解决margin-top塌陷的第一种方法(添加边框)*/
+            /*border: 1px solid #000;*/
+            /* 解决margin-top塌陷的第二种方法（隐藏元素溢出）*/
+            /*overflow: hidden;*/
+        }
+
+        .mgtop .indiv{
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            margin-top: 75px;
+            margin-left: 75px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="box"></div>
+    <br>
+    <div class="box02">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="mgtop clearfix">
+        <div class="indiv"></div>
+    </div>
+</body>
+</html>

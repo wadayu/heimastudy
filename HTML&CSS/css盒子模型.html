@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css盒子模型</title>
+
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+
+            /* ---> border <--- */
+
+            /* border-top-color: black; */
+            /* border-top-width: 10px; */
+            /* border-top-style: dotted;  !* 实线：solid 虚线：dashed 点线：dotted *! */
+
+            /* 以下简写的方式 颜色、实线、像素顺序没有关系 */
+            /* border-top: black 10px dotted; */
+            /* border-bottom: black 10px dotted; */
+            /* border-left: black 10px dotted; */
+            /* border-right: black 10px dotted; */
+
+            /* 四个border边框简写 */
+            border: gold solid 10px;
+
+            /* ---> padding <--- */
+
+            /*padding-top: 20px;*/
+            /*padding-right: 40px;*/
+            /*padding-bottom: 60px;*/
+            /*padding-left: 80px;*/
+
+            /* 4个简写 顺时针 top-right-bottom-left */
+            /*padding: 20px 40px 60px 80px;*/
+            /* 3个简写 top-(right|left)-bottom*/
+            /*padding: 20px 40px 80px;*/
+            /* 2个简写  (top|bottom)-(right|left) */
+            /*padding: 20px 40px;*/
+            /* 1个简写 （top|bottom|right|left）*/
+            padding: 20px;
+
+            /* ---> margin 用法同padding <--- */
+            margin: 100px 0 0 100px;
+
+        }
+
+        .box01{
+            width:400px;
+            height:50px;
+            background-color: cadetblue;
+            border-top:1px solid #f00;
+            border-bottom:3px solid #666;
+
+            font-size: 20px;
+            font-family: "Microsoft YaHei UI";
+            text-indent: 40px;
+            line-height: 50px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="box">全球最大的中文搜索引擎、全球最大的中文搜索引擎致力于让网民更便捷地获取信息，找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果。找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果李彦宏</div>
+    <br />
+    <div class="box01">新闻列表</div>
+    <br>
+</body>
+</html>

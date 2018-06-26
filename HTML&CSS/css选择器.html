@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器</title>
+    <style type="text/css">
+
+        /*1、标签选择器*/
+        hr{
+            color: #ff22ff;
+        }
+
+        /*2、id选择器 不常用*/
+        #p1{
+            color: red;
+        }
+
+        /*3、类选择器 */
+            .green{
+                color: green;
+            }
+
+            .big{
+                font-size: 32px;
+            }
+
+        /*4、层级选择器 最多嵌套4层*/
+        .box{
+            color: darkblue;
+            font-size:20px;
+            text-indent: 40px;
+        }
+
+        .box em{
+            font-style: normal;
+            color: red;
+            text-decoration: underline;
+        }
+
+        .box .font-colors{
+            color: cornflowerblue;
+        }
+
+        /* 5、组选择器*/
+        .box01,.box02,.box03,.box04,.box05{
+            font-size: 24px;
+            line-height: 40px;
+        }
+
+        .box01{
+            color: red;
+        }
+
+        .box02{
+            color: green;
+        }
+
+        .box03{
+            color: blue;
+        }
+
+        /*6、伪类及伪元素选择器*/
+        .link:hover{
+            color: red;
+            text-decoration: none;
+            font-size:24px;
+        }
+
+        .box04:before{
+            content: '*';
+        }
+
+        .box05:after{
+            content: '。';
+        }
+
+    </style>
+</head>
+<body>
+
+    <p id="p1">这是第一个p标签</p>
+    <p class="green big">这是第二个p标签</p>
+    <p class="big">这是第三个p标签</p>
+    <p class="box">百度拥有<em>数万名研发工程师</em>，这是中国乃至全球最为优秀的技术团队。这支队伍掌握着世界上最为先进的搜索引擎技术，使百度成为中国掌握世界尖端科学核心技术的中国高科技企业，也使<span class="font-colors">中国</span>成为美国、俄罗斯、和韩国之外，全球仅有的4个拥有搜索引擎核心技术的国家之一。</p>
+    <div class="box01">这是第一个div</div>
+    <div class="box02">这是第二个div</div>
+    <div class="box03">这是第三个div</div>
+    <a href="http://www.baidu.com" class="link">百度一下</a>
+    <div class="box04">这是第四个div</div>
+    <div class="box05">这个第五个div</div>
+</body>
+</html>

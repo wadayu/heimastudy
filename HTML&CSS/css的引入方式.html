@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS样式</title>
+    <!-- 第一种方式 外链式-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- 第二种方式 内嵌式 -->
+    <style type="text/css">
+        h1{
+            font-size: 32px;
+            color: gold;
+            font-family: "Microsoft YaHei UI";
+            font-weight: normal; /*normal:不加粗 bold:加粗*/
+            line-height: 40px;
+            /*text-decoration: underline;*/
+            text-align: center; /*水平位置 left|center|right*/
+        }
+
+        i{
+            font-size: 32px;
+            color: green;
+            font-style: normal;  /*normal：不倾斜  italic：倾斜*/
+        }
+
+        a{
+            text-decoration: none; /*none：不加下划线 underline:添加下划线*/
+        }
+
+        p{
+            font-size:24px;
+            text-indent: 48px /*字体缩进*/
+        }
+    </style>
+</head>
+<body>
+    <div>这是一个<i>div标签</i></div>
+    <h1>这是一个h1标签</h1>
+    <!-- 第三种方式 行内式 -->
+    <a href="http://www.baidu.com" title="百度一下你就知道" style="font-size: 32px;color: pink;">百度一下</a>
+    <p>全球最大的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果。</p>
+
+</body>
+</html>

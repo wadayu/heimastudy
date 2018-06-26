@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块 内联 内联快元素</title>
+    <!--
+    块元素 内联元素 内联块元素
+    元素就是标签，布局中常用的有三种标签，块元素、内联元素、内联块元素
+
+    1、块元素
+    块元素，也可以称为行元素，布局中常用的标签如：div、p、ul、li、h1~h6、dl、dt、dd等都是块元素，
+    特点：
+    * 支持全部的样式
+    * 如果没有设置宽度，默认的宽度为父级宽度的100%
+    * 盒子占据一行，即使设置了宽度
+
+    2、内联元素
+    内联元素，也称为行内元素，布局中常用的标签如：a、span、em、b、strong、i等都是内联标签
+    特点：
+    * 支持部分样式（不支持宽、高、margin上下、padding上下）
+    * 宽高由内容决定
+    * 盒子并在一起
+    * 代码换行，盒子之间会产生间距
+    * 子元素是内联元素，父元素可以用text-align属性设置子元素水平对齐方式
+
+    解决内联元素间隙的方法
+    * 去掉内联元素直接的换行
+    * 将内联元素的父级设置font-size:0 内联元素自身再设置font-size:x px
+
+    3、内联块元素
+    内联块元素也叫内行块元素，是新增的元素类型，现在元素没有归于此类别的，img input元素的行为类似这种元素，但是也归于内联元素
+    我们可以用display属性将块元素或者内联元素转化成这种内联块元素
+    特点：
+    * 支持全部的样式
+    * 如果没有设置宽度，宽度由内容决定
+    * 盒子并在一行
+    * 代码换行，盒子之间会产生间距
+    * 子元素是内联元素，父元素可以用text-align属性设置子元素水平对齐方式
+
+    这三种元素，可以通过display属性来相互转化，不过实际开发中，块元素用的比较多，所以我们经常吧内联元素转化为块元素，
+    少量转化为内联块，而使用内联元素时，直接使用内联元素，而不是用块元素来转化了。
+    -->
+    <style type="text/css">
+        .box{
+            width: 380px;
+            height: 270px;
+            background-color: gold;
+            margin:50px auto 0px;
+            text-align: center;
+            font-size: 0px;
+            line-height: 50px;
+        }
+
+        .box a{
+            background-color: red;
+            font-size: 16px;
+            width: 150px;
+            height: 50px;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .meum{
+            width: 694px;
+            height: 50px;
+            background-color: #FFFFD1;
+            margin: 50px auto 0;
+            font-size: 0px;
+            text-align: center;
+
+        }
+
+        .meum a{
+            width: 98px;
+            height: 48px;
+            margin-left: -1px;
+            font-size: 20px;
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid gold;
+            line-height: 48px;
+        }
+
+        .meum a:hover{
+            color: gold;
+            background-color: green;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <a href="">链接测试一</a>
+        <a href="">链接测试二</a>
+        <a href="">链接测试三</a>
+        <a href="">链接测试四</a>
+        <a href="">链接测试五</a>
+        <a href="">链接测试六</a>
+    </div>
+    <div class="meum">
+        <a href="">首页</a>
+        <a href="">公司简介</a>
+        <a href="">解决方案</a>
+        <a href="">公司新闻</a>
+        <a href="">行业动态</a>
+        <a href="">招贤纳士</a>
+        <a href="">联系我们</a>
+    </div>
+</body>
+</html>

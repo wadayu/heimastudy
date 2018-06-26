@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css元素溢出</title>
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            font-size: 18px;
+            margin:20px auto 0;
+            /*
+            hidden：将多余的内容隐藏
+            visible: 将多余的内容展示在元素之外 默认方式
+            scroll: 以滚动条的方式展示
+            auto：内容没有超过元素以正常的方式展示，如果超过以滚动条的方式展示
+             */
+            overflow: auto;  /* 元素溢出 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">全球最大的中文搜索引擎、全球最大的中文搜索引擎致力于让网民更便捷地获取信息，找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果。找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果李彦宏</div>
+</body>
+</html>
