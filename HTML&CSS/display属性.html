@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display属性</title>
+    <style type="text/css">
+        .box{
+            width: 248px;
+            height: 298px;
+            background-color: blue;
+            border: 1px dotted blue;
+            text-align: center;
+        }
+
+        .box h3{
+            width: 120px;
+            margin: 0px auto 0px;
+            line-height: 48px;
+        }
+
+        .box .box02{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin-top: 10px;
+            margin: 0px auto 0px;
+            display: none;
+        }
+
+        .box:hover .box02 {
+            display: block;
+        }
+        /* display常用属性
+        none：元素隐藏且不占位置
+        block：元素以块元素显示
+        inline：元素以内联元素显示
+        inline-block：元素以内联块元素显示
+        */
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h3>display属性</h3>
+        <div class="box02">隐藏块</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css浮动</title>
+    <!--
+    浮动特性：
+    1、浮动元素有左浮动（float:left）和右浮动（float:right）
+    2、浮动的元素会向左或向右浮动，碰到父元素边界，其他元素才停下来
+    3、相邻浮动的块元素可以并行在一行，超出父级宽度就换行
+    4、浮动让行内元素或块元素自动转化成行内块元素（此时不会有行内块元素间隙问题）
+    5、浮动元素后面没有浮动的元素会占据浮动元素的位置，没有浮动的元素内的文字会避开浮动的元素，形成文字饶图的效果
+    6、父元素如果没有设置尺寸（一般高度不设置），父元素内整体浮动的元素无法撑开父元素，父元素需要清除浮动
+    7、浮动元素之间没有垂直margin的合并
+
+    清除浮动的三种方法：
+    1、父级上增加属性 overflow:hidden
+    2、在最后一个子元素的后面加一个空的div 指定样式属性style='clear:both'
+    3、使用通用的清除浮动样式类 clearfix
+    -->
+    <style type="text/css">
+        /* 第三种方法：清除浮动 */
+        .clearfix:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .con{
+            width: 400px;
+            height: 80px;
+            border: 1px solid gold;
+            margin: 30px auto 0;
+        }
+
+        .con div{
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .con .box01{
+            background-color: green;
+            float: left;
+        }
+
+        .con .box02{
+            background-color: blue;
+            float: right;
+        }
+
+        .con02{
+            width: 400px;
+            height: 400px;
+            border: 1px solid gold;
+            margin: 20px auto 0;
+        }
+
+        .con02 .box01{
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            text-align: center;
+            line-height: 60px;
+            float: left;
+            margin: 25px;
+
+        }
+
+        .box{
+            width: 450px;
+            height: 260px;
+            border: 1px solid gold;
+            background-color: #F0D0E7;
+
+        }
+        .box .pic{
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin: 10px;
+        }
+
+        .box .text{
+            /*width: 450px;*/
+            /*height: 210px;*/
+            font-size: 16px;
+            text-indent: 32px;
+            margin: 10px;
+            line-height: 24px;
+        }
+
+        .list{
+            width: 210px;
+            border: 1px solid #000;
+            background-color: gold;
+            /* 第一种方法：清除浮动 */
+            /*overflow: hidden;*/
+        }
+
+        .list .box{
+            width: 50px;
+            height: 50px;
+            margin: 8px;
+            text-align: center;
+            line-height: 50px;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="con">
+        <div class="box01">1</div>
+        <div class="box02">2</div>
+    </div>
+
+    <!--.con02>(div.box01{$})*9-->
+    <div class="con02">
+        <div class="box01">1</div>
+        <div class="box01">2</div>
+        <div class="box01">3</div>
+        <div class="box01">4</div>
+        <div class="box01">5</div>
+        <div class="box01">6</div>
+        <div class="box01">7</div>
+        <div class="box01">8</div>
+        <div class="box01">9</div>
+    </div>
+    <h3>文字饶图</h3>
+    <div class="box">
+        <div class="pic"><img src="image/bg.jpg" width="80px" height="80px" alt="图片"></div>
+        <div class="text">全球最大的中文搜索引擎、最大的中文网站。1999年底,身在美国硅谷的李彦宏看到了中国互联网及中文搜索引擎服务的巨大发展潜力，抱着技术改变世界的梦想，他毅然辞掉硅谷的高薪工作，携搜索引擎专利技术，于 2000年1月1日在中关村创建了百度公司。百度拥有数万名研发工程师，这是中国乃至全球最为优秀的技术团队。这支队伍掌握着世界上最为先进的搜索引擎技术，使百度成为中国掌握世界尖端科学核心技术的中国高科技企业，也使中国成为美国、俄罗斯、和韩国之外，全球仅有的4个拥有搜索引擎核心技术的国家之一。</div>
+    </div>
+    <h3>清除浮动 需要清除浮动的原因：父元素没有指定高度，子元素需要浮动</h3>
+    <div class="list clearfix">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <!--第二种方法：清除浮动-->
+        <!--<div style="clear: both"></div>-->
+    </div>
+
+</body>
+</html>

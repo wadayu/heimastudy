@@ -2,3 +2,17 @@ div{
     font-size: 29px;
     color: #ff22ff;
 }
+
+/* 解决margin-top塌陷和清除浮动的*/
+.clearfix:before,.clearfix:after{
+    content: '';
+    display: table;
+}
+
+.clearfix:after{
+    clear:both;
+}
+
+.clearfix{ /* 有时候IE浏览器不识别after和before 就需要此选项修复 */
+    zoom: 1;
+}
