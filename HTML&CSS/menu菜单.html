@@ -70,23 +70,172 @@
             background-color: gold;
         }
 
+        .pagination{
+            width: 600px;
+            height: 40px;
+            border: 1px solid #000000;
+            list-style: none;
+            margin: 20px auto 0;
+            padding: 0;
+            font-size: 0px;
+            text-align: center;
+        }
+
+        .pagination li{
+            display: inline-block;
+            height: 26px;
+            font-size: 16px;
+            margin: 7px 5px;
+        }
+
+        .pagination li a{
+            display: block;
+            text-decoration: none;
+            font:normal 14px/26px "Microsoft YaHei UI";
+            background-color: gold;
+            padding: 0px 5px;
+            color: #000000;
+        }
+
+        .pagination li a:hover{
+            background-color: red;
+        }
+
+        .menu01{
+            list-style: none;
+            margin: 20px auto 0;
+            padding: 0px;
+            width: 960px;
+            height: 40px;
+            border: 1px solid gold;
+            text-align: center;
+            font-size: 0px;
+        }
+
+        .menu01 li{
+            display: inline-block;
+            height: 40px;
+            color: #000;
+        }
+
+        .menu01 li a{
+            display: block;
+            font:normal 16px/40px "Microsoft YaHei UI";
+            height: 40px;
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .menu01 li a:hover{
+            color: gold;
+        }
+
+        .menu01 span{
+            margin: 0px 20px;
+            display: block;
+            font:normal 16px/40px "Microsoft YaHei UI";
+            height: 40px;
+            color: #000000;
+        }
+
+        .menu02{
+            list-style: none;
+            margin: 20px auto 0;
+            padding: 0px;
+            width: 960px;
+            height: 40px;
+            background-color: #55a8ea;
+            position: relative;
+        }
+
+        .menu02 li{
+            width: 100px;
+            height: 40px;
+            float: left;
+        }
+
+        .menu02 li a{
+            display: block;
+            width: 100px;
+            height: 40px;
+            text-decoration: none;
+            text-align: center;
+            font: normal 16px/40px "Microsoft YaHei UI";
+            color: #000000;
+        }
+
+        .menu02 li a:hover{
+            background-color: #3b7e9f;
+        }
+
+        .menu02 .new{
+            width: 33px;
+            height: 20px;
+            background: url("image/new.png") no-repeat;
+            position: absolute;
+            top: -10px;
+            left: 432px;
+        }
+
     </style>
 </head>
 <body>
 
-<ul class="meum">
-    <li><a href="">首页</a></li>
-    <li><a href="">公司简介</a></li>
-    <li><a href="">解决方案</a></li>
-    <li><a href="">公司新闻</a></li>
-    <li><a href="">行业动态</a></li>
-    <li><a href="">招贤纳士</a></li>
-    <li><a href="">联系我们</a></li>
-</ul>
-<div class="news_title">
-    <h3>新闻列表</h3>
-    <a href="">更多&gt;&gt;</a>
-</div>
+    <ul class="meum">
+        <li><a href="">首页</a></li>
+        <li><a href="">公司简介</a></li>
+        <li><a href="">解决方案</a></li>
+        <li><a href="">公司新闻</a></li>
+        <li><a href="">行业动态</a></li>
+        <li><a href="">招贤纳士</a></li>
+        <li><a href="">联系我们</a></li>
+    </ul>
+
+    <div class="news_title">
+        <h3>新闻列表</h3>
+        <a href="">更多&gt;&gt;</a>
+    </div>
+
+    <ul class="pagination">
+        <li><a href="">上一页</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li>...</li>
+        <li><a href="">17</a></li>
+        <li><a href="">18</a></li>
+        <li><a href="">19</a></li>
+        <li><a href="">20</a></li>
+        <li><a href="">下一页</a></li>
+    </ul>
+
+    <ul class="menu01">
+        <li><a href="">首页</a></li>
+        <li><span>|</span></li>
+        <li><a href="">网站建设</a></li>
+        <li><span>|</span></li>
+        <li><a href="">程序开发</a></li>
+        <li><span>|</span></li>
+        <li><a href="">网络营销</a></li>
+        <li><span>|</span></li>
+        <li><a href="">企业VI</a></li>
+        <li><span>|</span></li>
+        <li><a href="">案例展示</a></li>
+        <li><span>|</span></li>
+        <li><a href="">联系我们</a></li>
+    </ul>
+
+    <ul class="menu02">
+        <li><a href="">首页</a></li>
+        <li><a href="">网站建设</a></li>
+        <li><a href="">程序开发</a></li>
+        <li><a href="">网络营销</a></li>
+        <li><a href="">企业VI</a></li>
+        <li><a href="">案例展示</a></li>
+        <li><a href="">联系我们</a></li>
+        <li class="new"></li>
+    </ul>
 
 </body>
 </html>

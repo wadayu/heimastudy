@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>css定位</title>
+    <title>css绝对定位</title>
     <!--
     关于文档流：
     文档流，是指盒子按照html标签编写的顺序依次从上到下，从左到右排列，块元素占一行，行内元素在一行之内从左到右排列，先写的先排列，
@@ -26,8 +26,40 @@
     绝对定位和固定定位的块元素和行内元素都会自动转化为行内块元素
 
     -->
+
+    <style type="text/css">
+        .con{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 30px auto 0;
+            position: relative; /* 子元素配置绝对定位时，父级一般配置相对定位 */
+        }
+
+        .box01,.box02{
+            width: 200px;
+            height: 100px;
+        }
+
+        .box01{
+            background-color: green;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+
+        .box02{
+            background-color: gold;
+        }
+
+    </style>
 </head>
 <body>
+
+<div class="con">
+    <div class="box01"></div>
+    <div class="box02"></div>
+</div>
 
 </body>
 </html>
