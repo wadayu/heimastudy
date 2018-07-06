@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        window.onload = function (){
+            /*
+            将所有li标签的背景色设置为gold
+            var aLi = document.getElementsByTagName('li');;
+
+            for (i=0;i<aLi.length;i++){
+                aLi[i].style.backgroundColor = 'gold';
+            }
+            */
+
+            // 将id=list01的li标签背景色设置为gold
+            var oUl = document.getElementById('list01');
+            var oLi = oUl.getElementsByTagName('li');
+
+            for (i=0;i<oLi.length;i++){
+                if (i%2 != 0){
+                    oLi[i].style.backgroundColor = 'gold';
+                }
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <ul id="list01">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+
+    <ul id="list02">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2ff6653-3b31-4738-b7b2-84359cf0104f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/for循环及数组去重.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/数组及多维数组.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/images/goods001.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/images/goods002.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/images/goods003.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/images/goods004.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/images/goods005.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/字符串的处理方法.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/定时器.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/弹框和定时练习.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/无缝滚动.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/通过tag获取元素属性.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/09JavaScript/获取元素属性.html" afterPath="$PROJECT_DIR$/09JavaScript/通过id获取元素属性.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/08首页布局/csdn.html" afterPath="$PROJECT_DIR$/08首页布局/csdn.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +54,18 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="无缝滚动.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/09JavaScript/无缝滚动.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="95" column="30" lean-forward="true" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,11 +109,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/05MySQL数据库/practice_pymysql.py" />
-        <option value="$PROJECT_DIR$/06miniweb框架/practice_bibao.py" />
-        <option value="$PROJECT_DIR$/02多任务/thread_target.py" />
-        <option value="$PROJECT_DIR$/02多任务/process_queue.py" />
-        <option value="$PROJECT_DIR$/06miniweb框架/practice_logging.py" />
         <option value="$PROJECT_DIR$/06miniweb框架/practice_装饰器.py" />
         <option value="$PROJECT_DIR$/HTML&amp;CSS/table.html" />
         <option value="$PROJECT_DIR$/HTML&amp;CSS/布局.html" />
@@ -127,7 +141,6 @@
         <option value="$PROJECT_DIR$/09JavaScript/js属性[ ]操作.html" />
         <option value="$PROJECT_DIR$/08首页布局/css/main.css" />
         <option value="$PROJECT_DIR$/09JavaScript/函数调用.html" />
-        <option value="$PROJECT_DIR$/08首页布局/csdn.html" />
         <option value="$PROJECT_DIR$/09JavaScript/css/skin01.css" />
         <option value="$PROJECT_DIR$/09JavaScript/css/skin02.css" />
         <option value="$PROJECT_DIR$/04Python高级用法/practice_property.py" />
@@ -141,6 +154,12 @@
         <option value="$PROJECT_DIR$/09JavaScript/数组及多维数组.html" />
         <option value="$PROJECT_DIR$/09JavaScript/for循环.html" />
         <option value="$PROJECT_DIR$/09JavaScript/for循环及数组去重.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/通过tag获取元素属性.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/字符串的处理方法.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/弹框和定时练习.html" />
+        <option value="$PROJECT_DIR$/08首页布局/csdn.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/定时器.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/无缝滚动.html" />
       </list>
     </option>
   </component>
@@ -217,17 +236,17 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\heima\09JavaScript\css" />
-      <recent name="G:\heima\08首页布局" />
-      <recent name="G:\heima\08首页布局\css" />
-      <recent name="G:\heima\08首页布局\images" />
-      <recent name="G:\heima\HTML&amp;CSS\image" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\heima\08首页布局\images" />
       <recent name="G:\heima\08首页布局" />
       <recent name="G:\heima\08首页布局\" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\heima\09JavaScript\images" />
+      <recent name="G:\heima\09JavaScript" />
+      <recent name="G:\heima\09JavaScript\css" />
+      <recent name="G:\heima\08首页布局" />
+      <recent name="G:\heima\08首页布局\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -546,9 +565,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17776097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17776097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -605,41 +625,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/02多任务/process_queue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/06miniweb框架/practice_bibao.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/06miniweb框架/practice_装饰器.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="119" column="8" lean-forward="true" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/06miniweb框架/practice_logging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/05MySQL数据库/SQL查询语法.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="40" column="48" lean-forward="true" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/02多任务/practice_gevent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -806,13 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/08首页布局/csdn.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="113" column="26" lean-forward="true" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/09JavaScript/css/skin02.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -935,14 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/09JavaScript/数组及多维数组.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/09JavaScript/for循环及数组去重.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -955,6 +925,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/通过tag获取元素属性.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="58" lean-forward="true" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/数组及多维数组.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/字符串的处理方法.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/弹框和定时练习.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/08首页布局/csdn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="107" column="26" lean-forward="true" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/定时器.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="46" column="28" lean-forward="true" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/无缝滚动.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="95" column="30" lean-forward="true" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
           <folding />
         </state>
       </provider>

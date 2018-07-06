@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            position: absolute;
+            top: 100px;
+            left: 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        /*
+        // 执行一次的定时器
+        var timer01 = setTimeout(function () {
+            alert('Hello World');
+        },1000)
+
+        // 关闭定时器
+        clearTimeout(timer01);
+       */
+
+        /*
+        // 反复执行的定时器
+        var timer02 = setInterval(function () {
+            alert('Hello World');
+        },2000)
+
+        // 关闭定时器
+        clearInterval(timer02);
+        */
+
+        var iLeft = 0;
+        var iSpeed = 3;
+        window.onload = function () {
+            oDiv = document.getElementById('div01');
+
+            var timer = setInterval(function () {
+            oDiv.style.left = iLeft + 'px';
+            iLeft += iSpeed;
+
+            if (iLeft > 1150){
+                iSpeed = -3;
+            }
+
+            if (iLeft < 0){
+                iSpeed = 3;
+            }
+
+            },30)
+
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    <div id='div01' class="box">
+
+    </div>
+</body>
+</html>
