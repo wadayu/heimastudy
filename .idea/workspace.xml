@@ -2,65 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2ff6653-3b31-4738-b7b2-84359cf0104f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/adv01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/adv02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/banner01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/banner02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/banner03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/banner04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/banner05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/banner06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/csdn_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/goods.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/icons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/images/slide.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/csdn.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/css/reset.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/08首页布局/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/css/skin01.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/css/skin02.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/if else语句.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/if多重判断及switch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/js属性[ ]操作.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/函数传参及return.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/函数和变量预解析.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/函数调用.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/网页换肤.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/获取元素属性.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/for循环及数组去重.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/09JavaScript/数组及多维数组.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/04Python高级用法/practice_property.py" afterPath="$PROJECT_DIR$/04Python高级用法/practice_property.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/1.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/1.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/background属性.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/background属性.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css/main.css" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css元素溢出.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css元素溢出.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css定位-固定定位.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css定位-固定定位.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css定位-定位层级.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css定位-定位层级.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css定位-相对定位.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css定位-相对定位.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css定位-绝对定位.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css定位-绝对定位.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css定位练习.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css定位练习.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css浮动.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css浮动.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css的引入方式.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css的引入方式.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css盒子模型.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css盒子模型.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/css选择器.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/css选择器.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/display属性.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/display属性.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/form.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/001.jpg" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/001.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/002.jpg" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/002.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/003.jpg" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/003.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/003.png" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/003.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/bg.jpg" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/bg.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/bg01.png" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/bg01.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/goods.jpg" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/goods.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/location_bg.jpg" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/location_bg.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/new.png" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/new.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/image/resume.png" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/image/resume.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/margin使用技巧.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/margin使用技巧.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/menu菜单.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/menu菜单.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/table_布局.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/table_布局.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/test.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/test.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/HTML&amp;CSS/块元素-内联元素-内联块元素.html" afterPath="$PROJECT_DIR$/07HTML&amp;CSS/块元素-内联元素-内联块元素.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/09JavaScript/获取元素属性.html" afterPath="$PROJECT_DIR$/09JavaScript/通过id获取元素属性.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -145,9 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e9293c35-9d5f-4550-9d7f-14bad4762404/console.sql" />
-        <option value="$PROJECT_DIR$/05MySQL数据库/SQL查询语法.sql" />
         <option value="$PROJECT_DIR$/05MySQL数据库/practice_pymysql.py" />
         <option value="$PROJECT_DIR$/06miniweb框架/practice_bibao.py" />
         <option value="$PROJECT_DIR$/02多任务/thread_target.py" />
@@ -196,6 +138,9 @@
         <option value="$PROJECT_DIR$/07HTML&amp;CSS/form.html" />
         <option value="$PROJECT_DIR$/09JavaScript/if多重判断及switch.html" />
         <option value="$PROJECT_DIR$/09JavaScript/test.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/数组及多维数组.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/for循环.html" />
+        <option value="$PROJECT_DIR$/09JavaScript/for循环及数组去重.html" />
       </list>
     </option>
   </component>
@@ -252,20 +197,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="heima" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heima" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heima" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="04Python高级用法" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -674,27 +605,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/02多任务/process_target.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/02多任务/thread_target.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/02多任务/thread_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/02多任务/process_queue.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -833,13 +743,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/07HTML&amp;CSS/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="88" column="12" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/07HTML&amp;CSS/css定位-相对定位.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -910,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/09JavaScript/js属性[ ]操作.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/09JavaScript/css/skin02.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -959,13 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/09JavaScript/获取元素属性.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/web-forms2.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -990,14 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/09JavaScript/网页换肤.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/09JavaScript/函数和变量预解析.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1018,6 +899,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/07HTML&amp;CSS/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="88" column="12" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/网页换肤.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/js属性[ ]操作.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/数组及多维数组.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/for循环及数组去重.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09JavaScript/通过id获取元素属性.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
           <folding />
         </state>
       </provider>

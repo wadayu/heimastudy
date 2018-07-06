@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .list{
+            list-style: none;
+            margin: 0px auto;
+            padding: 0px;
+            width: 300px;
+            height: 305px;
+        }
+
+        .list li{
+            height: 60px;
+            border-bottom: 1px solid #dddddd;
+            font:bold 24px/60px "Microsoft YaHei";
+            color: gold;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var aFilms = ['红海行动','疯狂动物城','美国队长3','侏罗纪世界2','湄公河行动'];
+            var oUl = document.getElementById('list');
+            var iLen = aFilms.length;
+            var sTr = '';
+
+            for (i=0;i<iLen;i++){
+                sTr += '<li>'+ aFilms[i] +'</li>';
+            }
+
+            oUl.innerHTML = sTr
+        }
+
+        // 数组去重
+        var aNums01 = [2,3,4,5,6,7,8,9,1,0,2,5,6,8,0,1,3,4,7,9];
+        var aNums02 = [];
+        for (i=0;i<aNums01.length;i++){
+            if (aNums01.indexOf(aNums01[i]) == i){
+                aNums02.push(i);
+            }
+        }
+
+        alert(aNums02)
+
+    </script>
+</head>
+<body>
+
+    <ul class="list" id="list">
+    </ul>
+
+</body>
+</html>

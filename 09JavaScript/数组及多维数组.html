@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        var aList01 = ['a','b','c','d'];
+        // 获取数组内容的个数
+        alert(aList01.length);
+        // 在数组的后面添加一个数据
+        aList01.push('e');
+        // alert(aList01)
+        // 在数组的后面删除一个数据
+        aList01.pop();
+        // alert(aList01)
+        // 在数组的前面添加一个数据
+        aList01.unshift('first');
+        // alert(aList01)
+        // 在数组的前面删除一个数据
+        aList01.shift();
+        // alert(aList01)
+        // 数组倒序排列
+        aList01.reverse();
+        alert(aList01);
+        // 将数组格式化成一个字符串
+        alert(aList01.join('_'));
+        // 获取数组第一个索引的内容
+        alert(aList01[0]);
+        // 查找字符串第一个索引位置，查到第一个不在往下查找
+        var aList02 = ['Join','Bob','Jury','Bob'];
+        alert(aList02.indexOf('Bob'));  // 结果为1
+        //指定位置删除并添加内容
+        aList02.splice(1,0,'Tony'); //第一个值：从哪个位置开始，第二个值：删除几个元素，第三个值：添加的内容（可不写）
+        alert(aList02);  // 结果Join,Tony,Bob,Jury,Bob
+        aList02.splice(2,2,'Cuihua');
+        alert(aList02);  // 结果为Join,Tony,Cuihua,Bob
+        aList02.splice(2,1);
+        alert(aList02); //结果为Join,Tony,Bob
+
+        //多维数组
+        var aList03 = [[1,2,3],['a','b','c']];
+        alert(aList03[1][0])
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
