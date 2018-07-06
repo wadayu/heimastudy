@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            // 函数传参
+            function fnChange(k,v) {
+                    oDiv.style[k] = v;
+            }
+
+            fnChange('color','red');
+            fnChange('fontSize','30px');
+
+            //return返回
+            function fnAdd(a,b) {
+                var c = a + b;
+                return c
+            }
+
+            var result = fnAdd(3,5)
+            alert(result)
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">这是第一个div</div>
+</body>
+</html>

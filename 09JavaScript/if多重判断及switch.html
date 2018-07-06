@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oBody = document.getElementById('body01');
+
+            var iWeek = 5;
+
+            /*
+            if (iWeek == 1){
+                oBody.style.backgroundColor = 'gold';
+            }
+
+            else if (iWeek == 2){
+                oBody.style.backgroundColor = 'red';
+            }
+
+            else if (iWeek == 3){
+                oBody.style.backgroundColor = 'green';
+            }
+
+            else if (iWeek == 4){
+                oBody.style.backgroundColor = 'blue';
+            }
+
+            else if (iWeek == 5){
+                oBody.style.backgroundColor = 'pink';
+            }
+
+            else{
+                oBody.style.backgroundColor = '#cecece';
+            }
+            */
+
+            // switch语句要比if else多重语句性能要高！
+
+            switch(iWeek){
+                case 1:
+                    oBody.style.backgroundColor = 'gold';
+                    break;
+
+                case 2:
+                    oBody.style.backgroundColor = 'red';
+                    break;
+
+                case 3:
+                    oBody.style.backgroundColor = 'green';
+                    break;
+
+                case 4:
+                    oBody.style.backgroundColor = 'blue';
+                    break;
+
+                case 5:
+                    oBody.style.backgroundColor = 'pink';
+                    break;
+
+                default:
+                    oBody.style.backgroundColor = '#cecece';
+
+                }
+
+        }
+
+    </script>
+</head>
+<body id="body01">
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .box1{
+            color: gold;
+            font-size: 20px;
+        }
+
+        .box2{
+            color: green;
+            font-size: 30px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function() {  // 当页面加载完成之后执行里面的语句
+            var oDiv = document.getElementById('div1');
+            var oA = document.getElementById('link');
+//            oDiv.style.color = 'red';
+//            oDiv.style.fontSize = '12px';
+
+            oA.href = 'http://www.baidu.com';
+            oA.title= '这是去百度页面的连接';
+
+//            给元素设置class属性
+            oDiv.className = 'box2';
+
+            var odiv_id = oDiv.id;
+            alert(odiv_id);
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="div1" class="box1">这是一个div标签</div>
+    <a href="" id="link">这个一个a标签</a>
+    <div id="div2" class="box2">这是二个div标签</div>
+
+</body>
+</html>

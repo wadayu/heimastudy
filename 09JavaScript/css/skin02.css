@@ -1,0 +1,9 @@
+body{
+    background-color: gold;
+}
+
+input{
+    background-color: purple;
+    color: mediumvioletred;
+    border: 0px;
+}

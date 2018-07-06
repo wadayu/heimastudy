@@ -15,7 +15,7 @@ class Money(object):
         if isinstance(value,int):
             self.__money = value
         else:
-            print  ('Error: %s is not int' %value)
+            print('Error: %s is not int' %value)
 
     money = property(get_money,set_money)
 

@@ -1,0 +1,9 @@
+body{
+    background-color: green;
+}
+
+input{
+    background-color: red;
+    color: #666666;
+    border: 0px;
+}

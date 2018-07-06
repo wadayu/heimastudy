@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function fnAlert () {
+            alert('Hello World');
+        }
+
+        window.onload = function () {
+            var oBtn = document.getElementById('btn01');
+
+            oBtn.onclick = function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.style.color = 'red';
+            oDiv.style.fontSize = '20px';
+        }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div1" onclick=fnAlert()>这个第一个div</div>
+    <input type="button" value="改变div1" id="btn01">
+</body>
+</html>

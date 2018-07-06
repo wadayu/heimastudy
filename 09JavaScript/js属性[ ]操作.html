@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        window.onload=function () {
+            var oDiv = document.getElementById('div1');
+            var sKey = 'color';
+            var sValue = 'red';
+
+            oDiv.style[sKey] = sValue;
+            oDiv.style['fontSize'] = '24px';
+
+//            读取元素块的内容
+            var rText = oDiv.innerHTML;
+            alert(rText);
+//            修改元素块的内容
+            oDiv.innerHTML = "<a href='http://www.baidu.com' title='这是去百度首页的链接'>百度首页</a>";
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">这是第一个div元素</div>
+</body>
+</html>
