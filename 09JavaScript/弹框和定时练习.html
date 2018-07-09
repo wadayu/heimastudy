@@ -15,27 +15,59 @@
             border-radius: 10px;
             display: none;
         }
+
+        .box p{
+            text-align: center;
+            color: red;
+        }
     </style>
 
     <script type="text/javascript">
+//        window.onload = function () {
+//            var oDiv = document.getElementById('div01');
+//
+//            var timer = setInterval(function () {
+//                oDiv.style.display = 'block'
+//            },5000);
+//
+//            oDiv.onclick = function () {
+//                 oDiv.style.display = 'none';
+//                 clearInterval(timer);
+//            }
+//        }
+
+        // 弹框自动关闭
+
         window.onload = function () {
             var oDiv = document.getElementById('div01');
+            var oBtn = document.getElementById('btn');
+            var oHtml = document.getElementById('text');
 
-            var timer = setInterval(function () {
-                oDiv.style.display = 'block'
-            },5000);
+            oBtn.onclick = function () {
+                oDiv.style.display = 'block';
 
-            oDiv.onclick = function () {
-                 oDiv.style.display = 'none';
-                 clearInterval(timer);
+                var iTime = 10;
+
+                timer = setInterval(function () {
+                    iTime -= 1;
+                    if (iTime==0){
+                        oDiv.style.display = 'none';
+                        clearInterval(timer);
+                        oHtml.innerHTML = '还有10秒自动关闭';
+                        iTime = 10;
+                    }
+                    oHtml.innerHTML = '还有' + iTime + '秒自动关闭';
+                },1000)
+
             }
         }
     </script>
 </head>
 <body>
-
+    <input type="button" value="弹框" id="btn">
     <div class="box" id="div01">
         <h1 style="text-align: center">你好！小铭同学</h1>
+        <p id="text">还有10秒自动关闭</p>
     </div>
 
 </body>

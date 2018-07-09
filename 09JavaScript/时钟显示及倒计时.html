@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .time{
+            text-align: center;
+            color: gold;
+            font-size: 24px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var oTime_id = document.getElementById('time');
+            var oCountdown_id = document.getElementById('Countdown');
+
+            // 显示时间
+            function fnRefresh() {
+                var now_time = new Date();
+                var year = now_time.getFullYear();
+                var month = now_time.getMonth() + 1;
+                var day = now_time.getDate();
+                var hour = now_time.getHours();
+                var minute = now_time.getMinutes();
+                var second = now_time.getSeconds();
+                var week = now_time.getDay();
+
+                time_str = year + '-' + fnPlural(month) + '-' + fnPlural(day) + ' ' + fnPlural(hour) + ':' + fnPlural(minute) + ':' + fnPlural(second) + ' ' + fnWeek(week);
+                oTime_id.innerHTML='现在时间：' + time_str;
+            }
+
+
+            // 倒计时
+            function fnCountdown() {
+                var now_date = new Date();  // 实际开发中需要读取后台的时间，通过ajax获取
+                var future_date = new Date(2018,8,30,24,0,0);
+                var differ = parseInt((future_date - now_date)/1000);  // 剩余秒数
+                var re_day = parseInt(differ/86400); //剩余天数
+                var re_hour = parseInt((differ%86400)/3600); //剩余小时
+                var re_minte = parseInt(((differ%86400)%3600)/60); //剩余分钟
+                var re_second = differ%60;  //剩余秒
+
+                count_time = '距离国庆节还有：' + fnPlural(re_day) + '天' + fnPlural(re_hour) + '时' + fnPlural(re_minte) + '分' + fnPlural(re_second) + '秒';
+                oCountdown_id.innerHTML = count_time;
+            }
+
+
+            // 自动刷新显示时间
+            fnRefresh();
+            setInterval(fnRefresh,1000);
+
+            // 自动刷新倒计时
+            fnCountdown();
+            setInterval(fnCountdown,1000);
+
+            function fnWeek (n) {
+                if(n==0){
+                    return'星期日'
+                }
+                else if (n==1){
+                    return'星期一'
+                }
+                 else if (n==2){
+                    return'星期二'
+                }
+                 else if (n==3){
+                    return'星期三'
+                }
+                 else if (n==4){
+                    return'星期四'
+                }
+                 else if (n==5){
+                    return'星期五'
+                }
+                 else{
+                    return'星期六'
+                }
+            }
+
+            function fnPlural (n) {
+                if (n<10){
+                    return '0' + n
+                }
+                else{
+                    return n
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id='time' class="time">现在时间：2008-08-08 08:08:08</div>
+    <div id='Countdown' class="time">距离2018-08-01还有：2008-08-08 08:08:08</div>
+</body>
+</html>

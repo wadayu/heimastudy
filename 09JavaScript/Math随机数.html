@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        arr01 = [];
+        for (i=0;i<20;i++){
+            iNum01 = Math.random(); //只能取0~1之间的小数
+            arr01.push(iNum01);
+        }
+
+        console.log(arr01);
+
+        alert(Math.floor(5.9)); //取值5 向下取整
+        alert(Math.ceil(5.1));  //取值6 向上去整
+
+//        //10~20范围取值
+//        start_num = 10;
+//        end_num = 20;
+//        arr02 = [];
+//        for (i=0;i<40;i++){
+//            iNum02 = Math.floor(((end_num-start_num+1)*Math.random()+ start_num));
+//            arr02.push(iNum02);
+//        }
+//
+//        console.log(arr02)
+
+//        0~100范围取值
+        arr02 = [];
+        for (i=0;i<500;i++){
+            iNum02 = Math.floor((100*Math.random()) + 1);
+            arr02.push(iNum02);
+        }
+
+        console.log(arr02);
+
+        // 去重
+        arr03 = [];
+        for (i=0;i<arr02.length;i++) {
+            if (arr02.indexOf(arr02[i]) == i){
+                arr03.push(arr02[i])
+            }
+        }
+
+        console.log(arr03.sort(compare));
+
+        // 排序方法 1,2,3,4,5,6，方法排序
+        function compare(a,b) {
+            if (a < b) {
+                return -1;
+            } else if (a > b) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
