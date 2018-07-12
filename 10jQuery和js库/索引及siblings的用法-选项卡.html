@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .btn input{
+            width: 100px;
+            height: 40px;
+            border: 0px;
+            text-align: center;
+        }
+
+        .btn .cursor{
+            background-color: gold;
+        }
+
+        .con div{
+            width: 350px;
+            height: 300px;
+            background-color: gold;
+            font-size: 24px;
+            line-height: 300px;
+            text-align: center;
+            display: none;
+        }
+        .con .active {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $btn = $('.btn input');
+            var $div = $('.con div');
+
+            $btn.click(function () {
+                // $(this)指的jquery的，点击哪个就获取哪个的元素
+                $(this).addClass('cursor').siblings().removeClass('cursor');  //siblings()除了当前点击的元素选择其他的同级元素
+                // $div.eq(index索引值) 选择$div选择集的第几个元素  ，$(this).index() 获取当前点击的索引值
+                $div.eq($(this).index()).addClass('active').siblings().removeClass('active')
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="btn">
+        <input type="button" value="选项一" class="cursor">
+        <input type="button" value="选项二">
+        <input type="button" value="选项三">
+    </div>
+    <div class="con">
+        <div class="active">选项一</div>
+        <div>选项二</div>
+        <div>选项三</div>
+    </div>
+</body>
+</html>

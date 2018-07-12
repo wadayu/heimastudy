@@ -8,17 +8,34 @@
             width: 500px;
             height: 300px;
             background-color: gold;
-            position: absolute;
+            position: fixed;
             top: 80px;
             left: 50%;
+            top: 50%;
+            margin-top: -150px;
             margin-left: -250px;
             border-radius: 10px;
-            display: none;
+            z-index: 9999;
         }
 
         .box p{
             text-align: center;
             color: red;
+        }
+
+        .mask{
+			position:fixed;
+			width:100%;
+			height:100%;
+			background-color:#000;
+			left:0;
+			top:0;
+			opacity:0.3;
+			z-index:9998;
+		}
+
+        .box_con{
+            display: none;
         }
     </style>
 
@@ -65,10 +82,12 @@
 </head>
 <body>
     <input type="button" value="弹框" id="btn">
-    <div class="box" id="div01">
-        <h1 style="text-align: center">你好！小铭同学</h1>
-        <p id="text">还有10秒自动关闭</p>
+    <div class="box_con" id="div01">
+        <div class="box">
+            <h1 style="text-align: center">你好！小铭同学</h1>
+            <p id="text">还有10秒自动关闭</p>
+        </div>
+        <div class="mask"></div>
     </div>
-
 </body>
 </html>

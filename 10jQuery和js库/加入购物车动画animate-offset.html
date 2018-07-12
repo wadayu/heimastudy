@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <style type="text/css">
+        .cursor{
+            width: 100px;
+            height: 30px;
+            background-color: #666666;
+            border: 0px;
+            color: #0b0966;
+            margin: 200px 0px 0px 300px;
+        }
+
+        .shop_cart{
+            width: 120px;
+            height: 50px;
+            background-color: gold;
+            float: right;
+            margin: 20px 20px 0px 0px;
+            font:normal 16px/50px "Microsoft YaHei UI";
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        .point{
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $btn = $('.cursor');
+            var $shop_cart = $('.shop_cart');
+            var $point = $('.point');
+            var $count = $('.shop_cart strong');
+
+            //获取按钮的的高度、宽度
+            var cursor_w = $btn.innerWidth();
+            var cursor_h = $btn.innerHeight();
+
+            //获取购物车的高度、宽度
+            var shop_cart_h = $shop_cart.innerHeight();
+            var shop_cart_w = $shop_cart.innerWidth();
+
+            //获取购物车的绝对位置
+            var shop_cart_p = $shop_cart.offset();
+
+            //获取按钮的绝对位置
+            var cursor_p = $btn.offset();
+
+            $btn.click(function () {
+                $point.css({'top':(cursor_p.top+parseInt(cursor_h)/2-5),'left':(cursor_p.left+parseInt(cursor_w)/2-5)});
+                $point.show();
+
+                $point.stop().animate({'left':(shop_cart_p.left+parseInt(shop_cart_w)/2-5),'top':(shop_cart_p.top+parseInt(shop_cart_h)/2-5)},function () {
+                    $point.hide();
+                    var iNum = $count.html();  //获取网页内容
+                    $count.html(parseInt(iNum)+1); //设置网页内容
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="加入购物车" class="cursor">
+    <div class="shop_cart">购物车<strong>0</strong></div>
+    <div class="point"></div>
+</body>
+</html>

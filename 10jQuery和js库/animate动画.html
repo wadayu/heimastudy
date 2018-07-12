@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .box,.box01{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#btn').click(function () {
+                $('.box').animate({'width':'400px'},1000,function () {
+                    $('.box').animate({'height':'400px'},1000,function () {
+                        $('.box').css({'background-color':'gold'})
+                    })
+                })
+            });
+
+            //用法2
+            $('#btn01').click(function () {
+                $('.box01').stop().animate(
+                    {'width':'+=10px','height':'+=10px'}
+                )
+            });
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="切换" id="btn">
+    <div class="box"></div>
+    <input type="button" value="切换" id="btn01">
+    <div class="box01"></div>
+
+</body>
+</html>
