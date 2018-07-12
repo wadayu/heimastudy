@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            margin: 0px;
+        }
+
+        .title{
+            width: 960px;
+            height: 200px;
+            background-color: gold;
+            margin: 0px auto;
+        }
+
+        .menu{
+            width: 960px;
+            height: 80px;
+            background-color: green;
+            margin: 0px auto;
+            font: normal 20px/80px "Microsoft YaHei UI";
+            text-align: center;
+            color: blue;
+        }
+
+        .menu_bug{
+            width: 960px;
+            height: 80px;
+            display: none;
+            margin: 0px auto;
+        }
+
+        .totop{
+            width: 60px;
+            height: 60px;
+            background-color: #000000;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            font: bold 24px/60px "Microsoft YaHei UI";
+            cursor: pointer;
+            display: none;
+        }
+
+        p{
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(window).scroll(function () {
+                var iNum = $(document).scrollTop();
+                //document.title = iNum;
+
+                if (iNum >= 200){
+                    $('.menu').css({
+                        'position':'fixed',
+                        'left':'50%',
+                        'top':'0px',
+                        'margin-left':'-480px'
+                    });
+                    $('.menu_bug').show()
+                }
+                else{
+                     $('.menu').css({
+                        'position':'static',
+                        'margin-left':'auto'
+                    });
+                    $('.menu_bug').hide()
+                }
+
+                if (iNum>400){
+                    $('.totop').fadeIn()
+                }
+                else{
+                     $('.totop').fadeOut()
+                }
+
+            });
+
+            $('.totop').click(function () {
+                $('body,html').animate({'scrollTop':'0'})
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="title"></div>
+    <div class="menu">菜单</div>
+    <div class="menu_bug"></div>
+    <div class="totop">↑</div>
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+</body>
+</html>

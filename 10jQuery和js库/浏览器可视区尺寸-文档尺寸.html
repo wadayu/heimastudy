@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //浏览器可视区宽度、高度
+            console.log($(window).width());
+            console.log($(window).height());
+            //页面文档的宽度、高度
+            console.log($(document).width());
+            console.log($(document).height());
+            //获取页面的滚动距离
+            console.log($(document).scrollTop()); //滚动高度
+            console.log($(document).scrollLeft()); //滚动宽度
+
+            //页面滚动事件
+            $(window).scroll(function () {
+                document.title = $(document).scrollTop()
+            })
+        })
+    </script>
+</head>
+<body>
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+    <p>文档内容</p>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+</body>
+</html>

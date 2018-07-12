@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //读取标签里的内容
+            console.log($('.box').html());
+            //设置标签里的内容
+            $('.box').html('<span>改写后的内容</span>');
+
+            //读取行间属性
+            console.log( $('.box').prop('class') ); //获取class属性
+            console.log( $('#link').prop('href') ); //获取href属性
+
+            //设置行间属性
+            $('#link').prop({'href':'http://www.baidu.com','title':'去往百度的链接'})
+        })
+    </script>
+</head>
+<body>
+    <div class="box">这是一个div标签</div>
+    <a href="http://www.163.com" id="link">点击超链接</a>
+</body>
+</html>
