@@ -7,22 +7,43 @@
     <script type="text/javascript">
         /*
         事件函数列表：
-        blur() //元素失去焦点
-        focus() //元素获得焦点
-        click() //鼠标点击
+        blur() //元素失去焦点 $('#input').blur(function (){var sVal = $(this).val();})
+        focus() //元素获得焦点 $('#input').focus()
+        click() //鼠标点击  $('#btn').click(function () {...})
         mouseover() //鼠标移入（进入子元素也触发）
         mouseout() //鼠标移出（进入子元素也触发）
         mouseenter() //鼠标移入（进入子元素不触发）
         mouseleave() //鼠标移出（进入子元素不触发）
-        hover() //同时为mouseenter()、mouseleave()事件指定处理函数
-        ready() //DOM加载完成以后处理的事件
-        resize() //浏览器窗口的大小发生改变
-        scroll() //滚动条的位置发生变化
-        submit() //用户提交表单
+        hover() //同时为mouseenter()、mouseleave()事件指定处理函数$('.acrive').hover(  function(){...},function(){...} )
+        ready() //DOM加载完成以后处理的事件 $(document).ready(function () {...})
+        resize() //浏览器窗口的大小发生改变  $(window).resize(function(){...})
+        scroll() //浏览器滚动条的位置发生变化 $(window).scroll(function () {...})
+        submit() //用户提交表单 $('#form').submit(function(){...})
          */
+
+        $(function () {
+            $('#input01').focus();  //获取焦点
+            $('#input01').blur(function () {
+                var val = $(this).val();
+                alert(val)
+            });
+
+            $('#form').submit(function () {
+                alert('提交成功')
+                // return false //阻止默认的提交行为
+            });
+
+            console.log(window.location.search) //执行结果 ?username=str&password=str
+        })
     </script>
 </head>
 <body>
+
+    <form action="" method="" id="form">
+        <input type="text" name="username" id="input01">
+        <input type="password" name="password" id="input02">
+        <input type="submit" value="提交">
+    </form>
 
 </body>
 </html>

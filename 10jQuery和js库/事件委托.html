@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .list{
+            list-style: none;
+            background-color: gold;
+            padding: 10px;
+        }
+
+        .list li{
+            background-color: green;
+            margin: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        /*
+        事件委托：
+            事件委托就是利用冒泡的原理，把事件加到父级上，通过判断事件来源的子集，执行相应的操作，
+        事件委托可以极大减少事件绑定的次数，提高性能，其次可以让新加人的子元素也可以拥有相同的操作
+         */
+
+        $(function () {
+            /*
+            $('.list li').click(function () {
+                $(this).css({'background-color':'red'})
+            });
+
+            //向页面追加新的内容
+            var $li = $('<li>9</li>');
+            $('.list').append($li)
+            //后加入的元素不能操作（点击的时候背景色不会变成红色）
+
+            */
+
+            //事件委托
+            $('.list').delegate('li','click',function () {
+                $(this).css({'background-color':'red'});
+            });
+
+            var $li = $('<li>9</li>');
+            $('.list').append($li);
+
+        })
+    </script>
+</head>
+<body>
+
+<ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+
+</body>
+</html>

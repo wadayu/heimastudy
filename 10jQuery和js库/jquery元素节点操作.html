@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        /*
+        // 1、创建节点
+        var $div = $('<div>') //创建一个空div标签
+        var $div2 = $('<div>这是div元素</div>')
+
+        // 2、插入节点
+        1）append()、appendTo() //在当前元素的内部，从后面插入
+            var $p = $('<p>p标签</p>')
+            $('#div1').append($p)  //两者效果一样
+            $p.appendTo($('#div1'))
+        2）prepend()、prependTo() //在当前元素的内部，从前面插入
+        3）after()、insertAfter() //在当前元素的(同级)后面插入
+        4）before()、insertBefore() //在当前元素的(同级)前面插入
+
+        // 3、删除节点
+        $('#div1').remove()
+         */
+
+        $(function () {
+            /*
+            var $p = $('<p>p标签</p>');
+            // $('#div1').append($p)
+            $p.appendTo($('#div1'));
+
+            var $span = $('<span>span标签</span>');
+            // $('#div1').prepend($span);
+            $span.prependTo($('#div1'));
+
+            var $a = $('<a href="#">百度链接</a>');
+            // $('#div1').after($a);
+            $a.insertAfter($('#div1'));
+
+            var $strong = $('<strong>strong标签</strong>');
+            // $('#div1').before($strong);
+            $strong.insertBefore($('#div1'));
+
+            $('#h2').remove()
+            */
+
+            //位置操作
+            //$('#div1').before($('#link'))
+            $('#link').insertBefore($('#div1'));
+
+            $('#link02').prependTo($('#div1'));
+
+
+        })
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <h1>h1标签</h1>
+        <h2 id="h2">h2标签</h2>
+    </div>
+
+    <a href="#" id="link">链接</a>
+    <a href="#" id="link02">超链接</a>
+
+</body>
+</html>

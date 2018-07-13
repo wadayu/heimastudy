@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Go List</title>
+    <style type="text/css">
+        .con{
+            width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .con .ipttext{
+            padding: 0px;
+            width: 538px;
+            height: 28px;
+            border: 1px solid #cecece;
+        }
+
+        .con .btn{
+            padding: 0px;
+            width: 35px;
+            height: 30px;
+            border: 1px solid #cecece;
+            cursor: pointer;
+        }
+
+        .con .list{
+            width: 578px;
+            list-style: none;
+            padding: 0px;
+            margin: 20px auto;
+        }
+
+        .con .list li{
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #cecece;
+        }
+
+
+
+        .list li span{
+            float: left;
+        }
+
+        .list li a{
+            float: right;
+            margin: 0px 5px;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $ipttext = $('#ipttext');
+            var $btn = $('#btn');
+            var $list = $('.list');
+
+            $btn.click(function () {
+                var content = $ipttext.val();
+                if (content==''){
+                    alert('不能为空');
+                    return
+                }
+
+                $li = $('<li><span>'+ content +'</span><a href="javascript:;" class="del">删除</a><a href="javascript:;" class="down">↓</a><a href="javascript:;" class="up">↑</a></li>')
+                $list.append($li);
+                $ipttext.val('');
+            });
+
+            $list.delegate('a','click',function () {
+                var $handler = $(this).prop('class');
+
+                if ($handler == 'del'){
+                    $(this).parent().remove()
+                }
+
+                if ($handler == 'up'){
+                    if ($(this).parent().prev().length == 0){
+                        alert('这是第一位了')
+                    }
+                    $(this).parent().insertBefore($(this).parent().prev())
+                }
+
+                if($handler == 'down'){
+                    if ($(this).parent().next().length == 0){
+                        alert('这是最后一位了')
+                    }
+                    $(this).parent().insertAfter($(this).parent().next())
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="con">
+        <h2>To Go List</h2>
+        <input type="text" id="ipttext" class="ipttext" autofocus></input>
+        <input type="button" id="btn" class="btn" value="添加">
+        <ul class="list">
+            <li><span>学习python</span><a href="javascript:;" class="del">删除</a><a href="javascript:;" class="down">↓</a><a href="javascript:;" class="up">↑</a></li>
+            <li><span>学习javascript</span><a href="javascript:;" class="del">删除</a><a href="javascript:;" class="down">↓</a><a href="javascript:;" class="up">↑</a></li>
+            <li><span>学习html/css</span><a href="javascript:;" class="del">删除</a><a href="javascript:;" class="down">↓</a><a href="javascript:;" class="up">↑</a></li>
+        </ul>
+    </div>
+</body>
+</html>
