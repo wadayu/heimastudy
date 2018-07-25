@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取360联想词</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+           //https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=s
+
+            $('#input').keyup(function () {  //keyup输入完成执行的function
+                $('.list').empty(); //清空网页内容
+                $value = $(this).val();
+
+                $.ajax({
+                url:'https://sug.so.360.cn/suggest?',
+                type:'GET',
+                dataType:'jsonp',
+                data:{'word':$value}
+                }).done(function (data) {
+                    for(var i=0;i<data.s.length;i++){
+                        $newli = $('<li>');
+                        $newli.html(data.s[i]);
+                        $newli.appendTo($('.list'))
+                    }
+                }).fail(function () {
+                    alert('网络超时！请重试！')
+                })
+
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+<lable>你敢输入英文字母试试吗？</lable><input type="text" id="input">
+<ul class="list">
+
+</ul>
+</body>
+</html>

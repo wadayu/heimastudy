@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .pop{
+            width: 300px;
+            height: 200px;
+            background-color: #dddddd;
+            position: absolute;
+            top: 30px;
+            left:50%;
+            margin-left: -150px;
+            /*text-align: left;*/
+            display: none;
+        }
+        .click{
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .pop p{
+            text-indent: 2em;
+            font: normal 18px/24px "Microsoft YaHei UI";
+            color:blue;
+        }
+
+        .pop a{
+            color: red;
+
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var isread = $.cookie('isread');
+            if(isread==undefined){
+                $('.pop').show()
+            }
+
+            $('#know').click(function () {
+                $('.pop').hide();
+                $.cookie('isread','yes',{expires:7,path:'/'})
+            })
+        })
+    </script>
+</head>
+<body>
+    Hello World
+    <div class="pop">
+        <p>主人你好：我们公司近期有优惠活动，请持续关注！</p>
+        <div class="click"><a href="javascript:" id="know">朕知道了</a></div>
+    </div>
+</body>
+</html>

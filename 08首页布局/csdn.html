@@ -81,7 +81,6 @@
 
         .search .input_text{
             float: left;
-            margin-left: 38px;
             border: 0px;
             margin: 0px 0px 0px 38px;
             padding: 0px;
@@ -110,7 +109,7 @@
         }
 
         .center .left{
-            width: 160px;
+            width: 180px;
             height: 400px;
             position: fixed;
             top: 60px;
@@ -144,10 +143,17 @@
         }
 
         .right{
-            width: 1130px;
-            margin-left: 170px;
+            width: 1110px;
+            margin-left: 190px;
         }
     </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $height = $(window).height() - 60;
+            $('.center .left').css({'height':$height})
+        })
+    </script>
 </head>
 <body>
     <div class="header_box">

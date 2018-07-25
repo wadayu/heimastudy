@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url:'./data.json',
+            type:'GET',  //POST
+            dataType:'json',
+            timeout: 5000
+            //data:{'username':'Tom'} //发送给服务器的数据
+        }).done(function (data) {
+//            alert(data.name+' '+' '+data.age);
+            console.log(data)
+        }).fail(function () {
+            alert('连接服务器超时，请重试！')
+        });
+    </script>
+</head>
+<body>
+    <div style="text-align: center;margin: 20px auto;color: red;font-size: 24px">This is a test page</div>
+</body>
+</html>
