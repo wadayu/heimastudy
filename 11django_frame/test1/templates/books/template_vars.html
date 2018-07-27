@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% for x,y,z in my_list %}
+        {{ x }}{{ y }}{{ z }}
+    {% endfor %}
+    <br>
+
+    {% for i in list_count %}
+        {{ forloop.counter }}--{{ i }}<br>
+    {% endfor %}
+
+    默认值：{{ content|default:'helloworld' }}<br>
+
+    {% for hero in heros %}
+        {{ hero.name }}--{{ hero.add_time }}<br>
+    {% endfor %}
+
+</body>
+</html>

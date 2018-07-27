@@ -84,12 +84,12 @@ def set_func_5(func):
         return  '<td>' + func(*args, **kwargs) + '</td>'
     return  call_func_5
 
-@set_func_4
-@set_func_5
+@set_func_4   # 装饰的时候从上往下 先set_func_4 后set_func_5
+@set_func_5   # 执行装饰器的时候从下往上执行 先set_func_5 后set_func_4
 def test_4():
     return 'Hello World'
 
-# print (test_4())
+print (test_4())
 
 
 # 带有参数的装饰器

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#btnLogin').click(function () {
+                username = $('#username').val();
+                password = $('#password').val();
+
+                $.ajax({
+                    'url': '/check_pass/',
+                    'type': 'POST',
+                    'dataType': 'json',
+                    'data': {'username': username,'password': password}
+                }).done(function (data) {
+                    if (data.res==1){
+                        location.href = '/index'
+                    }
+                    else{
+                        $('#errmsg').html('用户名或者密码错误').show()
+                    }
+                })
+
+            })
+        })
+    </script>
+</head>
+<body>
+<div>
+    <label for="">用户名</label><input type="text" id="username" name="username">
+    <br>
+    <label for="">密&nbsp;&nbsp;&nbsp;码</label><input type="password" id="password" name="password">
+    <br>
+{#    <input type="checkbox" name="remember"><lable>是否记住用户名</lable>#}
+{#    <br>#}
+    <input type="button" id="btnLogin" value="登录">
+    <br>
+    <div id="errmsg" style="color: red;display: none"></div>
+</div>
+
+</body>
+</html>

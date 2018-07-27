@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#verify').click(function () {
+                $.ajax({
+                    'url':'/verify_code/',
+                    'type': 'GET',
+                    'datType': 'json'
+                }).done(function () {
+                    alert('ok')
+                })
+
+            });
+{#            if ($('#username').val() != ''){#}
+{#                $('#rem').prop('checked','checked')  //设置行间属性checked#}
+{#            }#}
+{#            else{#}
+{#                $('#rem').removeProp('checked') //取消设置行间属性checked#}
+{#            }#}
+        })
+    </script>
+</head>
+<body>
+    <form action="{% url 'check_session' %}" method="post">
+        <label for="">用户名</label><input type="text" id="username" name="username" value="{{ username|default_if_none:'' }}">
+        <br>
+        <label for="">密&nbsp;&nbsp;&nbsp;码</label><input type="password" id="password" name="password">
+        <br>
+        <input type="checkbox" name="remember" id="rem"><lable>是否记住用户名</lable>
+        <br>
+        <img src="{% url 'verify_code' %}" alt="验证码" id="verify"> <input type="text" name="verify"> <br/>
+        <input type="submit" id="btnLogin" value="登录">
+        <br>
+    </form>
+
+</body>
+</html>

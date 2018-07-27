@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+</head>
+<body>
+
+<form action="{% url 'change_pwd_ation' %}" method="post">
+    <label>修改密码</label><input type="password" name="password">
+    <input type="submit" value="修改">
+
+</form>
+</body>
+</html>
