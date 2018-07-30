@@ -34,3 +34,26 @@ class HeroInfo(models.Model):
 
     def __str__(self):
         return  self.name
+
+class AreaInfo(models.Model):
+    atitle = models.CharField(max_length=20,verbose_name=u'地区名称')
+    pid = models.ForeignKey('self',null=True,blank=True,verbose_name=u'父级地区')
+
+    class Meta:
+        verbose_name = u'地区名称'
+        verbose_name_plural= verbose_name
+        db_table = 'areainfo'
+
+    def __str__(self):
+        return self.atitle
+
+    def parent(self):
+        if self.pid is None:
+            return ''
+        return self.pid.atitle
+    parent.short_description = u'父级地区'
+    parent.admin_order_field = 'atitle' # 排序
+    
+
+class UploadPic(models.Model):
+    path = models.ImageField(upload_to='books/%Y%m%d/',verbose_name=u'上传路径')

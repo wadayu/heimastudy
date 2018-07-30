@@ -26,5 +26,10 @@ urlpatterns = [
     url(r'template_vars/$', views.template_vars, name='template_vars'),
 
     # 验证码url
-    url(r'verify_code/$', views.verify_code, name='verify_code')
+    url(r'verify_code/$', views.verify_code, name='verify_code'),
+
+    # 图片上传
+    url (r'upload_show/$', views.upload_show, name='upload_show'),
+    # 图片处理
+    url(r'upload_handle', views.uplaod_handle, name='uplaod_handle')
 ]

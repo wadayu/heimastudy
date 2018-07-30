@@ -107,7 +107,11 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
+# 静态地址访问的url
+STATIC_URL = '/static/'
+# 静态文件存储的路径
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+# 用户上传的图片存储位置
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # APPEND_SLASH = False

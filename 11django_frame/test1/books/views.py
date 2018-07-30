@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
+from django.conf import settings
 
 # Create your views here.
-from .models import HeroInfo
+from .models import HeroInfo,UploadPic
+
+import time
+
 
 
 def loginRequire(func):
@@ -156,3 +160,25 @@ def verify_code(request):
     im.save(buf, 'png')
     # 将内存中的图片数据返回给客户端，MIME类型为图片png
     return HttpResponse(buf.getvalue(), 'image/png')
+
+
+
+# 用户上传图片处理
+
+def upload_show(request):
+    return render(request,'books/upload_image.html')
+
+def uplaod_handle(request):
+    # 1、获取图片对象
+    pic = request.FILES.get('pic')
+    # 2、保存图片文件
+    now_time = time.strftime('%Y%m%d')
+    save_path = '%s/books/%s/%s' %(settings.MEDIA_ROOT,now_time,pic.name)
+    with open(save_path,'wb') as f:
+        for content in pic.chunks():
+            f.write(content)
+    # pic.chunks() 保存的图片的数据 是一个生成器 # 迭代整个文件，并生成指定大小的一部分内容。chunk_size默认为64KB。
+    # 3、保存到数据库
+    UploadPic.objects.create(path='books/%s/%s' %(now_time,pic.name))
+    # 4、返回响应
+    return HttpResponse('上传成功！')
