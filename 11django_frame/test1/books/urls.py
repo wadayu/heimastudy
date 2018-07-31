@@ -31,5 +31,14 @@ urlpatterns = [
     # 图片上传
     url (r'upload_show/$', views.upload_show, name='upload_show'),
     # 图片处理
-    url(r'upload_handle', views.uplaod_handle, name='uplaod_handle')
+    url(r'upload_handle', views.uplaod_handle, name='uplaod_handle'),
+
+    # 地区详情信息
+    url(r'area_info/$', views.area_info, name='area_info'),
+    # 获取省份的url
+    url(r'get_prov/$', views.get_prov, name='get_prov'),
+    # 获取省份的下级市
+    url(r'get_city/(?P<area_id>\d+)/$', views.get_city, name='get_city'),
+    # 获取市区的下级县
+    url(r'get_county/(?P<city_id>\d+)/$', views.get_county, name='get_county'),
 ]

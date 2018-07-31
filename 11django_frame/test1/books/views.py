@@ -3,7 +3,7 @@ from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
 from django.conf import settings
 
 # Create your views here.
-from .models import HeroInfo,UploadPic
+from .models import HeroInfo,UploadPic,AreaInfo
 
 import time
 
@@ -114,6 +114,8 @@ def template_vars(request):
 from PIL import Image, ImageDraw, ImageFont
 from django.utils.six import BytesIO
 
+# 验证码
+
 # /verify_code
 def verify_code(request):
     """验证码函数"""
@@ -182,3 +184,41 @@ def uplaod_handle(request):
     UploadPic.objects.create(path='books/%s/%s' %(now_time,pic.name))
     # 4、返回响应
     return HttpResponse('上传成功！')
+
+# 地区详情信息
+def area_info(request):
+    return render(request,'books/area_info.html')
+
+# 获取省份的view
+
+def get_prov(request):
+    # 获取省级地区
+    all_prov = AreaInfo.objects.filter(pid__isnull=True)
+
+    all_prov_list = []
+    for prov in all_prov:
+        all_prov_list.append((prov.id,prov.atitle))
+
+    return JsonResponse({'areas':all_prov_list})
+
+
+def get_city(request,area_id):
+    # 获取省份的下级市
+    all_city = AreaInfo.objects.filter(pid__id=int(area_id))
+    
+    all_city_list = []
+    for city in all_city:
+        all_city_list.append((city.id,city.atitle))
+        
+    return JsonResponse({'city':all_city_list})
+
+
+def get_county(request, city_id):
+    # 获取市级下面的县
+    all_county = AreaInfo.objects.filter(pid__id=int(city_id))
+
+    all_county_list = []
+    for city in all_county:
+        all_county_list.append((city.id, city.atitle))
+
+    return JsonResponse({'county': all_county_list})

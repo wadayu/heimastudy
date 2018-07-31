@@ -12,7 +12,7 @@
                 containment:'parent',
                 opacity:0.6,
                 drag:function (event,ui) {
-                    //console.log(ui.position);
+                    // console.log(ui.position);
                     var $width = ui.position.left;
                     $('.backcolor').css({'width':$width});
                     $('#input01').val(parseInt($width/520*100))
@@ -28,7 +28,8 @@
                 opacity:0.6,
                 drag:function (event,ui) {
                     scroll_top = ui.position.top;
-                    hide_top = parseInt(scroll_top/290*hide_h);
+                    // console.log(ui.position);
+                    hide_top = parseInt(scroll_top/290*hide_h);  // 290：scroll_box.height - scroll_bar.height
                     $('.text').css({'top':-hide_top})
 
                 }

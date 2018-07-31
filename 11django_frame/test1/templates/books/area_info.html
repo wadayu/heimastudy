@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地区详情</title>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $prov = $('#prov');
+            $city = $('#city');
+            $county = $('#county');
+            {#     post请求 ajax简写       #}
+{#            $.post('/get_prov/',{'data':1},function (data) {#}
+{#                #}
+{#            })#}
+
+
+            {#     get请求 ajax简写       #}
+            $.get('/get_prov/',function (data) {
+                $.each(data.areas,function (index,item) {
+                    id = item[0];
+                    prov = item[1];
+                    $content = '<option value='+ id +'>'+ prov +'</option>';
+                    $prov.append($content)
+                })
+            });
+
+            $prov.change(function () {
+                $city.empty().append('<option>---请选择市区---</option>');  // 清空$city内容
+                $county.empty().append('<option>---请选择县区---</option>');// 清空$county内容
+                area_id = $(this).val();                      // 获取当前省份的value
+                $.get('/get_city/'+area_id,function (data) {  // 请求get_city url
+                    $.each(data.city,function (index,item) {  // 循环每一个city
+                        id = item[0];                         // 获取城市id
+                        city = item[1];                       // 获取城市名称
+                        $content = '<option value='+ id +'>'+ city +'</option>'; // 拼接html文档
+                        $city.append($content)                                   // 将html文档追加到下拉列表
+                    })
+                })
+            });
+
+            $city.change(function () {
+                $county.empty().append('<option>---请选择县区---</option>');
+                area_id = $(this).val();
+                $.get('/get_county/'+area_id,function (data) {
+                    $.each(data.county,function (index,item) {
+                        id = item[0];
+                        count = item[1];
+                        $content = '<option value='+ id +'>'+ count +'</option>';
+                        $county.append($content)
+                    })
+                })
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <select id="prov">
+        <option>---请选择省份---</option>
+    </select>
+    <select id="city" >
+        <option>---请选择市区---</option>
+    </select>
+    <select id="county">
+        <option>---请选择县区---</option>
+    </select>
+</body>
+</html>
