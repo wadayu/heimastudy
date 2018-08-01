@@ -18,6 +18,7 @@
 
             {#     get请求 ajax简写       #}
             $.get('/get_prov/',function (data) {
+                // console.log(data.areas)
                 $.each(data.areas,function (index,item) {
                     id = item[0];
                     prov = item[1];
@@ -58,14 +59,18 @@
     </script>
 </head>
 <body>
-    <select id="prov">
-        <option>---请选择省份---</option>
-    </select>
-    <select id="city" >
-        <option>---请选择市区---</option>
-    </select>
-    <select id="county">
-        <option>---请选择县区---</option>
-    </select>
+    <form action="{% url 'get_info' %}" method="post">
+        <select id="prov" name="prov">
+            <option>---请选择省份---</option>
+        </select>
+        <select id="city" name="city">
+            <option>---请选择市区---</option>
+        </select>
+        <select id="county" name="county">
+            <option>---请选择县区---</option>
+        </select>
+        <labal>地址详细信息：</labal><input type="text" name="address">
+        <input type="submit" value="提交">
+    </form>
 </body>
 </html>

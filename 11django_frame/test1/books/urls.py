@@ -41,4 +41,10 @@ urlpatterns = [
     url(r'get_city/(?P<area_id>\d+)/$', views.get_city, name='get_city'),
     # 获取市区的下级县
     url(r'get_county/(?P<city_id>\d+)/$', views.get_county, name='get_county'),
+
+    # form表单提交详细信息
+    url(r'get_info/$', views.get_info, name='get_info'),
+
+    # 分页
+    url(r'get_areas/$', views.get_areas, name='get_areas'),
 ]

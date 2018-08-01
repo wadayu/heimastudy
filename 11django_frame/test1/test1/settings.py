@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books',
+    'pure_pagination',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -115,3 +116,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 # 用户上传的图片存储位置
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # APPEND_SLASH = False
+
+
+# 分页选项
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 5,
+    'MARGIN_PAGES_DISPLAYED': 2,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': False,
+}

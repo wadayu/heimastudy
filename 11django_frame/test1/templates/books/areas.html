@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <style type="text/css">
+        .pageturn {
+            clear: both;
+            height: 30px;
+            margin: 50px auto;
+            display: table;
+            text-align: center;
+        }
+
+        .pageturn .pagelist {
+            display: table-cell;
+            vertical-align: middle;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        .pageturn li {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin-left: 10px;
+            float: left;
+            text-align: center;
+            list-style: none;
+        }
+
+        .pageturn li:first-child {
+            margin-left: 0;
+        }
+
+        .pageturn li:hover a, .pageturn .active a {
+            background: #717171;
+            color: #fff;
+            border-color: #eaeaea;
+        }
+
+        .pageturn a {
+            border: 1px solid #eaeaea;
+            display: block;
+            height: 28px;
+            color: #6c6c6c;
+            text-decoration: none;
+        }
+
+       .pageturn span {
+            border: 1px solid #eaeaea;
+            display: block;
+            height: 28px;
+            width: 98px;
+            color: #6c6c6c;
+            text-decoration: none;
+        }
+
+
+        .pageturn .long {
+            width: 100px;
+        }
+
+        .pageturn .none a {
+            border: 0;
+        }
+
+/*{#        .pageright {#}*/
+/*{#            float: right;#}*/
+/*{#            width: auto;#}*/
+/*{#            display: inline;#}*/
+/*{#            clear: none;#}*/
+/*{#            margin-top: 10px;#}*/
+/*{#        }#}*/
+    </style>
+</head>
+<body>
+    <ul>
+        {% for area in all_areas.object_list %}
+            <li>{{ area.id }}--{{ area.atitle }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="pageturn">
+        <ul class="pagelist">
+            {% if all_areas.has_previous %}
+                <li class="long"><a href="?{{ all_areas.previous_page_number.querystring }}">上一页</a></li>
+            {% else %}
+                <li class="long"><span>上一页</span></li>
+            {% endif %}
+
+            {% for page in all_areas.pages %}
+                {% if page %}
+                    {% ifequal page all_areas.number %}
+                        <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                    {% endifequal %}
+                {% else %}
+                    <li><a href="" class="none">...</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if all_areas.has_next %}
+                <li class="long"><a href="?{{ all_areas.next_page_number.querystring }}">下一页</a></li>
+            {% else %}
+                <li class="long"><span>下一页</span></li>
+            {% endif %}
+
+        </ul>
+    </div>
+</body>
+</html>

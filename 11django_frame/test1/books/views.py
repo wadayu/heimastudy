@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
 from django.conf import settings
+# 分页功能
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 from .models import HeroInfo,UploadPic,AreaInfo
@@ -222,3 +224,31 @@ def get_county(request, city_id):
         all_county_list.append((city.id, city.atitle))
 
     return JsonResponse({'county': all_county_list})
+
+def get_info(request):
+    # 获取提交的详细信息
+    prov_id = request.POST.get('prov')
+    city_id = request.POST.get('city')
+    county_id = request.POST.get('county')
+    address = request.POST.get('address')
+    prov = AreaInfo.objects.get(id=int(prov_id))
+    city = AreaInfo.objects.get(id=int(city_id))
+    county = AreaInfo.objects.get(id=int(county_id))
+    info = prov,city,county,address
+    return HttpResponse(info)
+
+
+# 分页
+def get_areas(request):
+    all_areas = AreaInfo.objects.filter(pid__isnull=True)
+
+    # 分页
+    try:
+        page = request.GET.get('page', 1)
+    except PageNotAnInteger:
+        page = 1
+
+    p = Paginator(all_areas, 2, request=request)
+    areas = p.page(page)
+
+    return render(request,'books/areas.html',{'all_areas':areas})
