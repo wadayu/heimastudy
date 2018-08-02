@@ -1,0 +1,225 @@
+查看git版本信息
+git --version
+初始化管理的仓库
+git init /data
+设置个人信息/查看信息
+git config  --global user.name 'wadayu'
+git config  --global user.email 'wadayu@163.com'
+git config --list
+把文件提交到暂存区
+git add file1 file2
+把暂存区的所有内容提交到当前分支
+git commit -m 'wrote a readme file'
+查看工作区的状态
+git status
+查看修改的内容
+git diff readme.txt
+查看提交历史记录
+git log/git log --pretty=oneline
+
+文件在工作区的撤销（文件修改后还没有被放到暂存区）
+git checkout -- readme.txt
+文件在暂存区的撤销（文件已经git add到暂存区了）
+git reset HEAD readme.txt
+git checkout -- readme.txt
+回退到上一个版本（文件commit之后）
+git reset --hard HEAD^   #Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+撤销回退
+git reset --hard 3c1689b26214bc    #找到之前的commit_id号就可以回退过来了。
+回退到了某个版本，关掉了电脑，想恢复到新版本怎么办？找不到新版本的commit id怎么办？
+git reflog
+
+对比工作区中code.txt和HEAD版本中code.txt的不同
+git diff HEAD -- code.txt
+# --- a/code.txt  -代表HEAD版本
+# +++ b/code.txt  +代表工作区的内容
+对比两个版本间文件的不同
+git diff HEAD HEAD^ -- code.txt
+# --- a/code.txt  -代表HEAD版本
+# +++ b/code.txt  +代表HEAD^的版本
+
+删除文件（已经commit后的删除）
+rm test.txt
+git rm test.txt
+git commit -m 'remove test.txt'
+
+在同一个工作区需要修复之前版本的bug，而且当前的版本还不能commit，怎么办？
+git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+git stash 保存现场
+git stash list 查看保存的现场
+git stash pop 恢复现场
+
+先有本地库，如何关联一个远程库；
+git remote add origin git@github.com:wadayu/studygit.git
+关联后，第一次推送master分支的所有内容；
+git push -u origin master
+本地库提交后远程推送最新修改到远程库；
+git push origin master
+远程库更新后拉送到本地库
+git pull origin master
+
+从远程库克隆到本地
+git clone  git@github.com:wadayu/studygit.git
+
+创建与合并分支  
+查看分支：git branch
+创建分支：git branch <name>
+切换分支：git checkout <name>
+创建+切换分支：git checkout -b <name>
+合并某分支到当前分支：git merge <name>
+删除分支：git branch -d <name>
+
+当不同的分支修改了相同的文件，等合并的时候会报以下错
+# git merge dev
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.
+Git告诉我们，readme.txt文件存在冲突，必须手动解决冲突后再提交。git status也可以告诉我们冲突的文件
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容
+等我们手动修改完文件以后再git add &git commit
+
+强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。
+合并dev分支，使用--no-ff参数，表示禁用Fast forward
+git merge --no-ff -m "merge with no-ff" dev
+合并后，我们用git log看看分支历史
+git log --graph --pretty=oneline --abbrev-commit
+
+将本地分支跟踪服务器分支
+git branch --set-upstream-to=origin/远程分支名称 本地分支名称
+例： git branch --set-upstream-to=origin/smart smart
+当git status的时候会多出一行:
+您的分支与上游分支'origin/smart' 一致。
+
+
+
+安装git服务器
+yum install git
+useradd git
+git init --bare /data/gittest.git
+chown -R git.git /data/gittest.git
+vi /etc/passwd
+git:x:501:501::/home/git:/usr/bin/git-shell
+touch /home/git/.ssh/authorized_keys
+chown git.git /home/git/.ssh/authorized_keys 
+将用户的id_rsa.pub文件导入authorized_keys文件里 
+备注：
+要管理公钥，用Gitosis
+要控制权限，用Gitolite
+
+安装配置Gitolite
+Server端：
+useradd git
+su - git
+git clone https://github.com/sitaramc/gitolite
+mkdir $HOME/bin
+gitolite/install -to $HOME/bin
+ssh-keygen 
+cp .ssh/id_rsa.pub admin.pub
+$HOME/bin/gitolite setup -pk admin.pub
+git clone git@127.0.0.1:gitolite-admin
+[git@zabbix_server ~]$ ls repositories/
+gitolite-admin.git  testing.git         #此时会出现这两个仓库
+rm -rf admin.pub 
+[git@zabbix_server ~]$ vi gitolite-admin/conf/gitolite.conf 
+@admin = admin
+@user = test
+
+repo gitolite-admin
+    RW+     =   admin
+
+repo testing
+    RW+     =   @user
+~                                                                                    
+~                       
+cd gitolite-admin/keydir/
+mv id_rsa.pub test.pub     #上传客户端的id_rsa.pub并重命名，名字要和gitolite.conf配置文件下的用户名一致！
+git add conf/gitolite.conf keydir/test.pub 
+git commit -m 'add test.pub'
+git push origin master
+
+Client端：
+git clone git@192.168.19.129:testing.git
+
+合并两个git仓库案例：
+有2个git仓库：repo1、repo2；
+想将repo1中的文件移入repo2；
+repo1的历史日志要保留；
+首先，快速创建2个仓库。
+
+mkdir repo1
+cd repo1
+git init
+echo "repo1.txt" > repo1.txt
+git add repo1.txt
+git ci -m "init repo1"
+ 
+mkdir repo2
+cd repo2
+git init
+echo "repo2.txt" > repo2.txt
+git add repo2.txt
+git ci -m "init repo2"
+
+结果目录路径是：
+repo1/
+repo1/repo1.txt
+repo1/.git
+ 
+repo2/
+repo2/repo2.txt
+repo2/.git
+再次注意，想要的效果是：
+repo2/
+repo2/repo1.txt
+repo2/repo2.txt
+repo2/.git
+
+然后，需要五步命令：
+# 1、将repo1作为远程仓库，添加到repo2中，设置别名为other
+[jot@myhost repo2]$ git remote add other ../repo1/
+# 2、从repo1仓库中抓取数据到本仓库
+[jot@myhost repo2]$ git fetch other
+warning: no common commits
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From ../repo1
+ * [new branch]      master     -> other/master
+# 3、将repo1仓库抓去的master分支作为新分支checkout到本地，新分支名设定为repo1
+[jot@myhost repo2]$ git checkout -b repo1 other/master
+Branch repo1 set up to track remote branch master from other.
+Switched to a new branch 'repo1'
+# 4、切换回repo2的master分支
+[jot@myhost repo2]$ git checkout master
+Switched to branch 'master'
+# 5、将repo1合并入master分支
+[jot@myhost repo2]$ git merge repo1
+Merge made by recursive.
+ repo1.txt |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 repo1.txt
+已经完成，可以push到服务器了。
+git push origin master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

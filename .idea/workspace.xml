@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2ff6653-3b31-4738-b7b2-84359cf0104f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11django_frame/test1/test1/settings.py" afterPath="$PROJECT_DIR$/11django_frame/test1/test1/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -93,8 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/10jQuery和js库/jquery选择器.html" />
-        <option value="$PROJECT_DIR$/10jQuery和js库/jquery操作.html" />
         <option value="$PROJECT_DIR$/10jQuery和js库/绑定click事件及toggleClass用法.html" />
         <option value="$PROJECT_DIR$/10jQuery和js库/jquery特殊效果.html" />
         <option value="$PROJECT_DIR$/10jQuery和js库/层级菜单.html" />
@@ -144,6 +143,8 @@
         <option value="$PROJECT_DIR$/10jQuery/加入购物车动画animate-offset.html" />
         <option value="$PROJECT_DIR$/11django_frame/test1/templates/books/areas.html" />
         <option value="$PROJECT_DIR$/11django_frame/test1/books/views.py" />
+        <option value="$PROJECT_DIR$/12git版本管理/git命令.txt" />
+        <option value="$PROJECT_DIR$/11django_frame/test1/test1/settings.py" />
       </list>
     </option>
   </component>
@@ -190,27 +191,13 @@
               <option name="myItemId" value="heima" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="11django_frame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heima" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heima" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/11django_frame/test1" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/myobject" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://G:/heima/01网络编程/udp_server.py" />
@@ -220,19 +207,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\heima\git版本管理" />
+      <recent name="G:\heima\11django_frame\test1\static\js" />
+      <recent name="G:\heima\08首页布局\images" />
+      <recent name="G:\heima\10jQuery\cookie-弹框\js" />
+      <recent name="G:\heima\10jQuery\cookie-弹框" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\heima\08首页布局\js" />
       <recent name="G:\heima\10jQuery和js库" />
       <recent name="G:\heima\09JavaScript" />
       <recent name="G:\heima\08首页布局\images" />
       <recent name="G:\heima\08首页布局" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\heima\11django_frame\test1\static\js" />
-      <recent name="G:\heima\08首页布局\images" />
-      <recent name="G:\heima\10jQuery\cookie-弹框\js" />
-      <recent name="G:\heima\10jQuery\cookie-弹框" />
-      <recent name="G:\heima\10jQuery\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -622,34 +609,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/07HTML&amp;CSS/css定位-相对定位.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/10jQuery/css/test.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="1178" column="0" lean-forward="false" selection-start-line="1178" selection-start-column="0" selection-end-line="1178" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/10jQuery/ajax/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/10jQuery/ajax/data.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -944,16 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11django_frame/test1/books/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/11django_frame/test1/templates/books/areas.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -966,6 +915,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
           <caret line="89" column="24" lean-forward="true" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12git版本管理/git命令.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-918">
+          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11django_frame/test1/test1/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11django_frame/test1/books/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
+          <caret line="64" column="4" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11django_frame/test1/books/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11django_frame/test1/test1/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="134" column="62" lean-forward="true" selection-start-line="134" selection-start-column="62" selection-end-line="134" selection-end-column="62" />
           <folding />
         </state>
       </provider>
