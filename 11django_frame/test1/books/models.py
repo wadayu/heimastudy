@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField #富文本编辑器
 
 # Create your models here.
 from datetime import date,datetime
@@ -57,3 +58,10 @@ class AreaInfo(models.Model):
 
 class UploadPic(models.Model):
     path = models.ImageField(upload_to='books/%Y%m%d/',verbose_name=u'上传路径')
+
+
+class Tinymce(models.Model):
+    text = HTMLField(verbose_name='详情')
+
+    class Meta:
+        verbose_name = '富文本编辑器'

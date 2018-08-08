@@ -252,3 +252,14 @@ def get_areas(request):
     areas = p.page(page)
 
     return render(request,'books/areas.html',{'all_areas':areas})
+
+
+# redis存储session
+
+def set_session(request):
+    request.session['username'] = 'django'
+    return HttpResponse('设置成功')
+
+def get_session(request):
+    msg = request.session.get('username','no')
+    return HttpResponse(msg)

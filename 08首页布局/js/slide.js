@@ -80,6 +80,8 @@ $(function () {
     }
 
     function move() {
+
+        //点击 prev next操作
         if ($nowli<0){
             $nowli = $li.length-1;
             $prevli=0;
@@ -104,7 +106,7 @@ $(function () {
             return; //执行完之后不再执行后面的内容
         }
 
-
+        // 点击圆圈的操作
         if ($nowli > $prevli) {  //幻灯片从右边移过来
             $li.eq($nowli).css({'left': 760});
             $li.eq($prevli).animate({'left': -760});

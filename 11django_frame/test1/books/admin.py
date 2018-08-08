@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import HeroInfo,BookInfo,AreaInfo,UploadPic
+from .models import HeroInfo,BookInfo,AreaInfo,UploadPic,Tinymce
 
 # Register your models here.
 class AreaInfoInline(admin.StackedInline):
@@ -34,3 +34,5 @@ admin.site.register(BookInfo, BookInfoAdmin)
 admin.site.register(HeroInfo, HeroInfoAdmin)
 admin.site.register(AreaInfo,AreaInfoAdmin)
 admin.site.register(UploadPic,UploadPicAdmin)
+admin.site.register(Tinymce)
+

@@ -47,4 +47,9 @@ urlpatterns = [
 
     # 分页
     url(r'get_areas/$', views.get_areas, name='get_areas'),
+
+
+    # redis存储session
+    url(r'set_session/$', views.set_session, name='set_session'),
+    url(r'get_session/$', views.get_session, name='get_session'),
 ]

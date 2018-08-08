@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^',include('books.urls'))
+    url(r'^',include('books.urls')),
+    url(r'^tinymce/', include('tinymce.urls')), # 富文本编辑器
 ]

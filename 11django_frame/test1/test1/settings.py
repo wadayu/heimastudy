@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'books',
     'pure_pagination',
+    'tinymce' #富文本编辑器
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,10 +127,17 @@ PAGINATION_SETTINGS = {
     'SHOW_FIRST_PAGE_WHEN_INVALID': False,
 }
 
-# 设置redis存储session信息 （先安装插件：pip install django-redis-sessions）
-SESSION_ENGINE = 'redis_sessions.session' # 设置使用redis存储session信息  默认存储到数据库
-SESSION_REDIS_HOST = '127.0.0.1'  # redis服务的ip地址
-SESSION_REDIS_PORT = 6379  # redis服务的端口号
-SESSION_REDIS_DB = 2 # redis中的哪个数据库
-SESSION_REDIS_PASSWORD = '' # 连接redis数据库密码
-SESSION_REDIS_PREFIX = 'session' # session key值的前缀 以session：开头
+# # 设置redis存储session信息 （先安装插件：pip install django-redis-sessions）
+# SESSION_ENGINE = 'redis_sessions.session' # 设置使用redis存储session信息  默认存储到数据库
+# SESSION_REDIS_HOST = '192.168.1.155'  # redis服务的ip地址
+# SESSION_REDIS_PORT = 6379  # redis服务的端口号
+# SESSION_REDIS_DB = 2 # redis中的哪个数据库
+# SESSION_REDIS_PASSWORD = '' # 连接redis数据库密码
+# SESSION_REDIS_PREFIX = 'session' # session key值的前缀 以session：开头
+
+# 富文本编辑器配置
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 600,
+    'height': 400,
+}

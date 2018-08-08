@@ -10,15 +10,15 @@
             $prov = $('#prov');
             $city = $('#city');
             $county = $('#county');
-            {#     post请求 ajax简写       #}
-{#            $.post('/get_prov/',{'data':1},function (data) {#}
-{#                #}
-{#            })#}
-
-
-            {#     get请求 ajax简写       #}
+//            {#     post请求 ajax简写       #}
+//{#            $.post('/get_prov/',{'data':1},function (data) {#}
+//{#                #}
+//{#            })#}
+//
+//
+//            {#     get请求 ajax简写       #}
             $.get('/get_prov/',function (data) {
-                // console.log(data.areas)
+//                 console.log(data.areas)
                 $.each(data.areas,function (index,item) {
                     id = item[0];
                     prov = item[1];
