@@ -130,4 +130,34 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 #     'height': 400,
 # }
 
+# 发送邮件配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# smpt服务地址
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+# 发送邮件的邮箱
+EMAIL_HOST_USER = 'wadayu@163.com'
+# 在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'WDY1990'
+# 收件人看到的发件人
+EMAIL_FROM = '天天生鲜<wadayu@163.com>'
 
+
+# Django的缓存配置 pip install django-redis==4.1.0
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://192.168.19.131:6379/6",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": ""
+        }
+    }
+}
+
+# 配置session存储
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+# 配置login_required登录url地址（视图需要登录才能访问，在访问之前先登录）
+LOGIN_URL = '/user/login/'

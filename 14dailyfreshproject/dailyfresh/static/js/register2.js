@@ -68,7 +68,7 @@ $(function () {
     });
 
     function check_username() {
-        var re = /^\w{5,15}$/;
+        var re = /^\w{6,15}(\@[a-z0-9]+(\.[0-9a-z]+){1,2})?$/;
         var val = $user_name.val();
         if (val == '') {
             $user_name.next().html('用户名不能为空');
@@ -82,7 +82,7 @@ $(function () {
             error_name = false
         }
         else {
-            $user_name.next().html('用户名是5到15个英文或数字，还可包含“_”');
+            $user_name.next().html('用户名是6到15个英文或数字，或者邮箱');
             $user_name.next().show();
             error_name = true;
             return
