@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2ff6653-3b31-4738-b7b2-84359cf0104f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/08首页布局/register.html" afterPath="$PROJECT_DIR$/08首页布局/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/.idea/workspace.xml" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/urls.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/views.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/dailyfresh/settings.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/dailyfresh/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/css/main.css" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/js/register2.js" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/js/register2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/index.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/login.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/register.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/register.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

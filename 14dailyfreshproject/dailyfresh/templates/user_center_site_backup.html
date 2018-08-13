@@ -1,0 +1,129 @@
+{% extends 'base_user_center.html' %}
+{% load staticfiles %}
+{% block top_js %}
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript">
+    $(function () {
+        var $receiver = $('#receiver');
+        var $address = $('#address');
+        var $code = $('#code');
+        var $phone = $('#phone');
+        var $btn = $('#btn');
+        var phone_re = /^1[3|4|5|7|8][0-9]{9}$/;
+        var code_re = /^[0-9]{6}/;
+        var err_receiver = false;
+        var err_address = false;
+        var err_code = false;
+        var err_phone = false;
+
+
+        $receiver.blur(function () {
+            receiver = $receiver.val();
+
+{#            if(receiver == '') {#}
+{#               alert('收件人不能为空，请检查');#}
+{#               err_receiver = true;#}
+{#               return#}
+{#            }#}
+        });
+
+        $address.blur(function () {
+            address = $address.val();
+
+{#            if(address == '') {#}
+{#               alert('地址不能为空，请检查');#}
+{#               err_address = true;#}
+{#               return#}
+{#            }#}
+        });
+
+        $code.blur(function () {
+            code = $code.val();
+{##}
+{#            if(!code_re.test(code) || code == '') {#}
+{#               alert('邮编不合法，请检查');#}
+{#               err_code = true;#}
+{#               return#}
+{#            }#}
+        });
+
+        $phone.blur(function () {
+            phone = $phone.val();
+
+{#            if(!phone_re.test(phone) || phone == ''){#}
+{#                alert('手机不合法，请检查');#}
+{#                err_phone = true;#}
+{#                return#}
+{#            }#}
+        });
+
+        $('#form').submit(function () {
+            if(receiver=='' && address == '' && code == '' && phone == ''){
+                alert('nook')
+            }else(
+                alert('ok')
+            )
+
+
+{#            if(err_address == true && err_code == true && err_phone == true && err_receiver == true){#}
+{#                alert('数据有误，请检查');#}
+{#              return false#}
+{#            }else(#}
+{#                $.ajax({#}
+{#                    url:"{% url 'user:user_address' %}",#}
+{#                    type: "POST",#}
+{#                    data: {'receiver':receiver,'address':receiver,'code':code,'phone':phone},#}
+{#                    dataType:'json',#}
+{#                    async: true,#}
+{#                    beforeSend:function(xhr, settings){#}
+{#                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");#}
+{#                    }#}
+{#                }).done(function(data){#}
+{#                       if(data.status == 'success'){#}
+{#                            alert("提交成功")#}
+{#                       }else if(data.status == 'fail'){#}
+{#                            alert("提交失败")#}
+{#                       }#}
+{#                })#}
+{#            )#}
+        });
+
+
+
+    });
+    </script>
+{% endblock top_js %}
+{% block right_content %}
+		<div class="right_content clearfix">
+				<h3 class="common_title2">收货地址</h3>
+				<div class="site_con">
+					<dl>
+						<dt>当前地址：</dt>
+						<dd>北京市 海淀区 东北旺西路8号中关村软件园 （李思 收） 182****7528</dd>
+					</dl>
+				</div>
+				<h3 class="common_title2">编辑地址</h3>
+				<div class="site_con">
+					<form id="form">
+						<div class="form_group">
+							<label>收件人：</label>
+							<input type="text" id="receiver">
+						</div>
+						<div class="form_group form_group2">
+							<label>详细地址：</label>
+							<textarea class="site_area" id="address"></textarea>
+						</div>
+						<div class="form_group">
+							<label>邮编：</label>
+							<input type="text" name="" id="code">
+						</div>
+						<div class="form_group">
+							<label>手机：</label>
+							<input type="text" name="" id="phone">
+						</div>
+
+						<input type="submit" name="" id='btn' value="提交" class="info_submit">
+					</form>
+				</div>
+		</div>
+{% endblock right_content %}
