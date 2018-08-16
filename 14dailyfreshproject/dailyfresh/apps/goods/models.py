@@ -58,7 +58,7 @@ class GoodsSKU(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.type
+        return self.name
 
 
 class GoodsImage(BaseModel):
@@ -87,7 +87,7 @@ class IndexGoodsBanner(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.sku
+        return self.sku.name
 
 
 class IndexTypeGoodsBanner(BaseModel):

@@ -6,14 +6,41 @@ import xadmin
 
 from goods.models import GoodsType,Goods,GoodsSKU,GoodsImage,IndexGoodsBanner,IndexTypeGoodsBanner,IndexPromotionBanner
 
-class GoodsTypeAdmin(object):
+class BaseAdmin(object):
+    """当从后台更新数据库时，调用指定的函数"""
+    def save_models(self):
+        obj = self.new_obj
+        obj.save()
+
+        from celery_tasks.tasks import generate_static_index_html
+        # 当数据更新的时候重新生成静态页面
+        generate_static_index_html.delay()
+
+        from django.core.cache import cache
+        # 当数据更新的时候删除缓存
+        cache.delete('index_page_data')
+
+    def delete_models(self):
+        obj = self.new_obj
+        obj.save()
+
+        from celery_tasks.tasks import generate_static_index_html
+        # 当数据更新的时候重新生成静态页面
+        generate_static_index_html.delay()
+
+        from django.core.cache import cache
+        # 当数据更新的时候删除缓存
+        cache.delete('index_page_data')
+
+
+class GoodsTypeAdmin(BaseAdmin):
     list_display = ['name', 'logo', 'image','create_time','update_time','is_delete']
     search_fields = ['name', 'logo', 'image','create_time','update_time','is_delete']
     list_filter = ['name', 'logo', 'image','create_time','update_time','is_delete']
     model_icon = 'fa fa-cubes'
 
 
-class GoodsAdmin(object):
+class GoodsAdmin(BaseAdmin):
     list_display = ['name', 'detail', 'create_time', 'update_time', 'is_delete']
     search_fields = ['name', 'detail', 'create_time', 'update_time', 'is_delete']
     list_filter = ['name', 'detail', 'create_time', 'update_time', 'is_delete']
@@ -21,33 +48,33 @@ class GoodsAdmin(object):
     model_icon = 'fa fa-creative-commons'
 
 
-class GoodsSKUAdmin(object):
+class GoodsSKUAdmin(BaseAdmin):
     list_display = ['type', 'goods', 'name', 'desc', 'price','unite','image','stock','sales','status','create_time', 'update_time', 'is_delete']
     search_fields = ['type', 'goods', 'name', 'desc', 'price','unite','image','stock','sales','status','create_time', 'update_time', 'is_delete']
     list_filter = ['type__name', 'goods__name', 'name', 'desc', 'price','unite','image','stock','sales','status','create_time', 'update_time', 'is_delete']
     model_icon = 'fa fa-dashcube'
 
 
-class GoodsImageAdmin(object):
+class GoodsImageAdmin(BaseAdmin):
     list_display = ['sku', 'image', 'create_time', 'update_time', 'is_delete']
     search_fields = ['sku', 'image', 'create_time', 'update_time', 'is_delete']
     list_filter = ['sku__name', 'image', 'create_time', 'update_time', 'is_delete']
     model_icon = 'fa fa-file-image-o'
 
 
-class IndexGoodsBannerAdmin(object):
+class IndexGoodsBannerAdmin(BaseAdmin):
     list_display = ['sku', 'image', 'index','create_time','update_time','is_delete']
     search_fields = ['sku', 'image', 'index','create_time','update_time','is_delete']
     list_filter = ['sku__name', 'image', 'index','create_time','update_time','is_delete']
 
 
-class IndexTypeGoodsBannerAdmin(object):
+class IndexTypeGoodsBannerAdmin(BaseAdmin):
     list_display = ['type', 'sku', 'display_type','index','create_time','update_time','is_delete']
     search_fields = ['type', 'sku', 'display_type','index','create_time','update_time','is_delete']
     list_filter = ['type__name', 'sku__name', 'display_type','index','create_time','update_time','is_delete']
 
 
-class IndexPromotionBannerAdmin(object):
+class IndexPromotionBannerAdmin(BaseAdmin):
     list_display = ['name', 'url', 'image','index','create_time','update_time','is_delete']
     search_fields = ['name', 'url', 'image','index','create_time','update_time','is_delete']
     list_filter = ['name', 'url', 'image','index','create_time','update_time','is_delete']

@@ -6,15 +6,18 @@ from django.conf import settings
 from django.http import HttpResponse,JsonResponse
 from django.db.models import Q
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.hashers import make_password
+from django_redis import get_redis_connection
 
 import re
 # 对数据进行加密 （pip install itsdangerous）
 from itsdangerous import TimedJSONWebSignatureSerializer as serializer
 from itsdangerous import SignatureExpired # 过期异常
 
-from celery_tasks.tasks import send_register_email
+from celery_tasks.tasks import send_register_email,send_update_email
 from utils.mixin import LoginRequiredMixin
 from user.models import User,Address
+from goods.models import GoodsSKU
 
 
 # /register
@@ -136,6 +139,60 @@ class LoginView(View):
         else:
             return render(request,'login.html',{'errmsg':"用户名或者密码错误"})
 
+# /user/update_pwd
+class UpdatePwdView(View):
+    # 找回密码页面
+    def get(self,request):
+        return render(request,'update_pwd.html')
+
+    def post(self,request):
+        res = request.POST
+        username = res['username']
+
+        try:
+            user = User.objects.get(Q(username=username)|Q(email=username))
+            email = user.email
+
+            # 对用户身份信息进行加密
+            s = serializer(settings.SECRET_KEY, 300)
+            info = {'user_id': user.id}
+            token = s.dumps(info)
+            token = token.decode('utf-8')
+
+            # 发送找回用户邮件
+            send_update_email.delay(email, token)  # celery 异步
+
+            return JsonResponse({'status': 'success'})
+        except Exception as e:
+            return JsonResponse({'status': 'fail'})
+
+
+class ModifyPwdView(View):
+    # 用户输入新密码
+    def get(self,request,token):
+        try:
+            s = serializer(settings.SECRET_KEY, 300)
+            info = s.loads(token)
+            user_id = info['user_id']
+            user = User.objects.get(id=user_id)
+
+            return  render(request,'reset_pwd.html',{'username':user})
+        except SignatureExpired as e:
+            return HttpResponse('验证码已过期')
+        except Exception as e:
+            return render(request,'404.html')
+
+class ResetPwdView(View):
+    # 重设密码
+    def post(self,request):
+        username = request.POST.get('username')
+        password = request.POST.get('pwd')
+        user = User.objects.get(username=username)
+        user.password = make_password(password)
+        user.save()
+
+        return redirect(reverse('user:login'))
+
 # /user/logout
 class LogoutView(View):
     # 退出登录
@@ -148,8 +205,27 @@ class LogoutView(View):
 class UserInfoView(LoginRequiredMixin,View):
     # 个人中心
     def get(self,request):
-        page = 'info'
-        return render(request,'user_center_info.html',{'page':page})
+        # 获取redis的对象
+        con = get_redis_connection('default')
+        # 标记用户浏览记录的key
+        history_key = 'history_%s' %request.user.id
+        # 获取用户最近的5次商品浏览记录
+        sku_ids = con.lrange(history_key,0,4)
+
+        # 根据商品的id获取商品详情信息
+        goods_li = []
+        for good_id in sku_ids:
+            good = GoodsSKU.objects.get(id=int(good_id))
+            goods_li.append(good)
+
+        # 获取默认收货地址
+        address = Address.objects.get_default_address(user=request.user)
+
+        context = {'page': 'info',
+                   'address': address,
+                   'goods_li':goods_li}
+
+        return render(request,'user_center_info.html',context)
 
 # /user/order
 class UserOrderView(LoginRequiredMixin,View):

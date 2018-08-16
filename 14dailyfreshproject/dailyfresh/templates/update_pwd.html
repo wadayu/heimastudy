@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load  staticfiles %}
+
+{% block title %}天天生鲜-密码找回{% endblock title %}
+{% block top_js %}
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#username').focus(function () {
+                $('.user_error').hide()
+            });
+
+            $('#update').submit(function () {
+                if($('#username').val() == ''){
+                    $('.user_error').html('此选项不能为空').show();
+                    return false
+                }else{
+                    $.ajax({
+                        url:"{% url 'user:update_pwd' %}",
+                        type: "POST",
+                        data:$(this).serialize(),
+                        dataType:'json',
+                        async: true,
+                        beforeSend:function(xhr, settings){
+                            xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                        }
+                    }).done(function(data){
+                           if(data.status == 'success'){
+                               window.location.href=window.location.href;
+                               alert("邮箱验证码已发送，请注意查收");
+                           }else if(data.status == 'fail'){
+                               alert("用户未注册，不能找回密码");
+                               window.location.href=window.location.href;
+                           }
+
+                    })
+                };
+            });
+        })
+    </script>
+{% endblock top_js %}
+{% block header_con %}{% endblock header_con %}
+{% block search_bar %}{% endblock search_bar %}
+{% block body %}
+    <div class="login_top clearfix">
+		<a href="{% url 'goods:index' %}" class="login_logo"><img src="{% static 'images/logo02.png' %}"></a>
+	</div>
+
+	<div class="login_form_bg">
+		<div class="login_form_wrap clearfix">
+			<div class="login_banner fl"></div>
+			<div class="slogan fl">日夜兼程 · 急速送达</div>
+			<div class="login_form fr">
+				<div class="login_title clearfix">
+					<h1>密码找回</h1>
+					<a href="{% url 'goods:index' %}">首页</a>
+				</div>
+				<div class="form_input">
+					<form method="post" id="update">
+                        {% csrf_token %}
+						<input type="text" name="username" id="username" class="name_input" value="{{ username|default_if_none:'' }}" placeholder="请输入用户名或者邮箱">
+						<div class="user_error">输入错误</div>
+						<input type="submit" value="发送邮箱验证码" class="input_submit">
+					</form>
+				</div>
+                <span id="errmsg" style="color: red;display: none">{{ errmsg }}</span>
+			</div>
+		</div>
+	</div>
+{% endblock body %}

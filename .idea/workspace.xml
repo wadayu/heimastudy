@@ -2,7 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2ff6653-3b31-4738-b7b2-84359cf0104f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/js/login2.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/.idea/workspace.xml" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/goods/models.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/goods/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/goods/views.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/goods/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/models.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/urls.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/views.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/apps/user/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/celery_tasks/tasks.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/celery_tasks/tasks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/dailyfresh/settings.py" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/dailyfresh/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/cart.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/cart.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/detail.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/index.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/list.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/login.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/place_order.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/place_order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/register.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/user_center_info.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/user_center_info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/user_center_order.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/user_center_order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/user_center_site.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/static/user_center_site.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/base.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/index.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/login.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/register.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/user_center_info.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/user_center_info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/user_center_site.html" afterPath="$PROJECT_DIR$/14dailyfreshproject/dailyfresh/templates/user_center_site.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -106,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/10jQuery/togolist-事件委托-节点操作.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="88" column="73" lean-forward="true" selection-start-line="88" selection-start-column="73" selection-end-line="88" selection-end-column="73" />
+              <caret line="88" column="73" lean-forward="false" selection-start-line="88" selection-start-column="73" selection-end-line="88" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -1057,7 +1083,7 @@
     <entry file="file://$PROJECT_DIR$/10jQuery/togolist-事件委托-节点操作.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="88" column="73" lean-forward="true" selection-start-line="88" selection-start-column="73" selection-end-line="88" selection-end-column="73" />
+          <caret line="88" column="73" lean-forward="false" selection-start-line="88" selection-start-column="73" selection-end-line="88" selection-end-column="73" />
           <folding />
         </state>
       </provider>

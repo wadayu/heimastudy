@@ -48,7 +48,7 @@ class OrderGoods(BaseModel):
     sku = models.ForeignKey(GoodsSKU, verbose_name=u'商品SKU')
     count = models.IntegerField(default=1, verbose_name=u'商品数目')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=u'商品价格')
-    comment = models.CharField(max_length=256, verbose_name=u'评论')
+    comment = models.CharField(max_length=256,null=True,blank=True, verbose_name=u'评论')
 
     class Meta:
         db_table = 'df_order_goods'
