@@ -1,0 +1,122 @@
+{% extends 'base_detail_list.html' %}
+{% load staticfiles %}
+{% block title %}天天生鲜-商品列表{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main2.css' %}">
+    <style type="text/css">
+    .pageturn {
+        clear: both;
+        height: 30px;
+        margin: 50px auto;
+        display: table;
+        text-align: center;
+    }
+
+    .pageturn .pagelist {
+        display: table-cell;
+        vertical-align: middle;
+        overflow: hidden;
+        padding: 0px;
+        text-align: center;
+    }
+
+    .pageturn li {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: 10px;
+        float: left;
+        text-align: center;
+        list-style: none;
+    }
+
+    .pageturn li:first-child {
+        margin-left: 0;
+    }
+
+    .pageturn li:hover a, .pageturn .active a {
+        background: #717171;
+        color: #fff;
+        border-color: #eaeaea;
+    }
+
+    .pageturn a {
+        border: 1px solid #eaeaea;
+        display: block;
+        height: 28px;
+        color: #6c6c6c;
+        text-decoration: none;
+    }
+
+    .pageturn span {
+        border: 1px solid #eaeaea;
+        display: block;
+        height: 28px;
+        width: 98px;
+        color: #6c6c6c;
+        text-decoration: none;
+    }
+
+    .pageturn .long {
+        width: 100px;
+    }
+
+    .pageturn .none a {
+        border: 0;
+    }
+    </style>
+{% endblock css %}
+
+ {% block main_content %}
+	<div class="breadcrumb">
+		<a href="#">{{ query }}</a>
+		<span>></span>
+		<span>收藏内容如下：</span>
+	</div>
+
+	<div class="main_wrap clearfix">
+			<ul class="goods_type_list clearfix">
+                {% for item in page %}
+				    <li>
+					<a href="{% url 'goods:detail' item.object.id %}"><img src="{{ item.object.image.url }}"></a>
+					<h4><a href="{% url 'goods:detail' item.object.id %}">{{ item.object.name }}</a></h4>
+					<div class="operate">
+						<span class="prize">￥{{ item.object.price }}</span>
+						<span class="unit">{{ item.object.unite }}</span>
+						<a href="#" class="add_item.objects" title="加入购物车"></a>
+					</div>
+				    </li>
+                {% endfor %}
+			</ul>
+
+            <div class="pageturn">
+                <ul class="pagelist">
+                    {% if page.has_previous %}
+                        <li class="long"><a href="/search?q={{ query }}&page={{ page.previous_page_number }}">上一页</a></li>
+                    {% else %}
+                        <li class="long"><span>上一页</span></li>
+                    {% endif %}
+
+                    {% for index in paginator.page_range %}
+                        {% if index %}
+                            {% ifequal index page.number %}
+                                <li class="active"><a href="/search/?q={{ query }}&page={{ index }}">{{ index }}</a></li>
+                            {% else %}
+                                <li><a href="/search/?q={{ query }}&page={{ index }}" class="page">{{ index }}</a></li>
+                            {% endifequal %}
+                        {% else %}
+                            <li><a href="" class="none">...</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page.has_next %}
+                        <li class="long"><a href="/search?q={{ query }}&page={{ page.next_page_number }}">下一页</a></li>
+                    {% else %}
+                        <li class="long"><span>下一页</span></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+	</div>
+{% endblock main_content %}

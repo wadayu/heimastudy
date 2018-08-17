@@ -1,0 +1,145 @@
+{% extends 'base_detail_list.html' %}
+{% load staticfiles %}
+{% block title %}天天生鲜-商品列表{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main2.css' %}">
+    <style type="text/css">
+    .pageturn {
+        clear: both;
+        height: 30px;
+        margin: 50px auto;
+        display: table;
+        text-align: center;
+    }
+
+    .pageturn .pagelist {
+        display: table-cell;
+        vertical-align: middle;
+        overflow: hidden;
+        padding: 0px;
+        text-align: center;
+    }
+
+    .pageturn li {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: 10px;
+        float: left;
+        text-align: center;
+        list-style: none;
+    }
+
+    .pageturn li:first-child {
+        margin-left: 0;
+    }
+
+    .pageturn li:hover a, .pageturn .active a {
+        background: #717171;
+        color: #fff;
+        border-color: #eaeaea;
+    }
+
+    .pageturn a {
+        border: 1px solid #eaeaea;
+        display: block;
+        height: 28px;
+        color: #6c6c6c;
+        text-decoration: none;
+    }
+
+    .pageturn span {
+        border: 1px solid #eaeaea;
+        display: block;
+        height: 28px;
+        width: 98px;
+        color: #6c6c6c;
+        text-decoration: none;
+    }
+
+    .pageturn .long {
+        width: 100px;
+    }
+
+    .pageturn .none a {
+        border: 0;
+    }
+    </style>
+{% endblock css %}
+
+ {% block main_content %}
+	<div class="breadcrumb">
+		<a href="{% url 'goods:goods_list' type.id %}">全部分类</a>
+		<span>></span>
+		<span>{{ type.name }}</span>
+	</div>
+
+	<div class="main_wrap clearfix">
+		<div class="l_wrap fl clearfix">
+			<div class="new_goods">
+				<h3>新品推荐</h3>
+				<ul>
+                    {% for new_good in new_goods %}
+					    <li>
+						<a href="{% url 'goods:detail' new_good.id %}"><img src="{{ new_good.image.url }}"></a>
+						<h4><a href="{% url 'goods:detail' new_good.id %}">{{ new_good.name}}</a></h4>
+						<div class="prize">￥{{ new_good.price}}</div>
+					</li>
+                    {% endfor %}
+				</ul>
+			</div>
+		</div>
+
+		<div class="r_wrap fr clearfix">
+			<div class="sort_bar">
+                <a href="?sort=" class="{% if sort == '' %}active{% endif %}">默认</a>
+				<a href="?sort=price" class="{% if sort == 'price' %}active{% endif %}">价格</a>
+				<a href="?sort=hot" class="{% if sort == 'hot' %}active{% endif %}">人气</a>
+			</div>
+
+			<ul class="goods_type_list clearfix">
+                {% for good in all_goods.object_list %}
+				    <li>
+					<a href="{% url 'goods:detail' good.id %}"><img src="{{ good.image.url }}"></a>
+					<h4><a href="{% url 'goods:detail' good.id %}">{{ good.name }}</a></h4>
+					<div class="operate">
+						<span class="prize">￥{{ good.price }}</span>
+						<span class="unit">{{ good.unite }}</span>
+						<a href="#" class="add_goods" title="加入购物车"></a>
+					</div>
+				    </li>
+                {% endfor %}
+			</ul>
+
+            <div class="pageturn">
+                <ul class="pagelist">
+                    {% if all_goods.has_previous %}
+                        <li class="long"><a href="?{{ all_goods.previous_page_number.querystring }}">上一页</a></li>
+                    {% else %}
+                        <li class="long"><span>上一页</span></li>
+                    {% endif %}
+
+                    {% for page in all_goods.pages %}
+                        {% if page %}
+                            {% ifequal page all_goods.number %}
+                                <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                            {% else %}
+                                <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                            {% endifequal %}
+                        {% else %}
+                            <li><a href="" class="none">...</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if all_goods.has_next %}
+                        <li class="long"><a href="?{{ all_goods.next_page_number.querystring }}">下一页</a></li>
+                    {% else %}
+                        <li class="long"><span>下一页</span></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+	</div>
+{% endblock main_content %}

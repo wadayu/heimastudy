@@ -51,6 +51,8 @@ INSTALLED_APPS = (
     'DjangoUeditor', # 富文本编辑器
     'xadmin',  # 后台管理
     'crispy_forms', # 后台管理
+    'pure_pagination', # 分页功能
+    'haystack', #全文检索框架
 )
 
 MIDDLEWARE_CLASSES = (
@@ -158,6 +160,31 @@ CACHES = {
 # 配置session存储
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
+
+# 分页选项
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 5,
+    'MARGIN_PAGES_DISPLAYED': 2,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': False,
+}
+
+# 全文检索框架的配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 使用whoosh引擎
+        # 'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        # 索引文件保存路径
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+
+# 当添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# 指定搜索结果每页显示的条数
+HAYSTACK_SEARCH_RESULTS_PER_PAGE=1
 
 # 配置login_required登录url地址（视图需要登录才能访问，在访问之前先登录）
 LOGIN_URL = '/user/login/'

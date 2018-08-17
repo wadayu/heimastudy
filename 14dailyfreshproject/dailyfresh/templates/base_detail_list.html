@@ -9,7 +9,7 @@
 				<span></span>
 				<ul class="subnav">
                     {% for type in all_types %}
-					    <li><a href="#" class="{{ type.logo }}">{{ type.name }}</a></li>
+					    <li><a href="{% url 'goods:goods_list' type.id %}" class="{{ type.logo }}">{{ type.name }}</a></li>
                     {% endfor %}
 				</ul>
 			</div>

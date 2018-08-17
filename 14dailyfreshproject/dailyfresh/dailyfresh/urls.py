@@ -20,6 +20,7 @@ import xadmin
 urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^xadmin/', xadmin.site.urls),
+    url(r'^search/', include('haystack.urls')), # 全文检索框架
     url(r'^user/', include('user.urls', namespace='user')),
     url(r'^order/', include('order.urls', namespace='order')),
     url(r'^cart/', include('cart.urls', namespace='cart')),

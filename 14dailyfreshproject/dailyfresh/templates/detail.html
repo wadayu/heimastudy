@@ -3,11 +3,11 @@
 {% block title %}天天生鲜-商品详情{% endblock %}
 {% block main_content %}
 	<div class="breadcrumb">
-		<a href="#">全部分类</a>
+		<a href="{% url 'goods:goods_list' goods.type.id %}">全部分类</a>
 		<span>></span>
-		<a href="#">新鲜水果</a>
+		<a href="{% url 'goods:goods_list' goods.type.id %}">{{ goods.type.name }}</a>
 		<span>></span>
-		<a href="#">商品详情</a>
+		<span>商品详情</span>
 	</div>
 
 	<div class="goods_detail_con clearfix">
@@ -28,6 +28,14 @@
 					<a href="javascript:;" class="minus fr">-</a>	
 				</div> 
 			</div>
+             <div>
+                <p>其他规格:</p>
+                <ul>
+                    {% for sku in same_spu_goods %}
+                        <li><a href="{% url 'goods:detail' sku.id %}">{{ sku.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
 			<div class="total">总价：<em>16.80元</em></div>
 			<div class="operate_btn">
 				<a href="javascript:;" class="buy_btn">立即购买</a>

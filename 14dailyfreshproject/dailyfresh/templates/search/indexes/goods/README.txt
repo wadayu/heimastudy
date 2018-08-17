@@ -1,0 +1,3 @@
+新创建的文件search、indexes是固定的
+goods是要检索库对应app名称（GoodsSKU对应的app名称是goods）
+当前目录的goodssku_text.txt文件 命名格式为：要检索库的名字小写_text.txt
