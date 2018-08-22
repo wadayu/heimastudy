@@ -1,5 +1,26 @@
 {% extends 'base_user_center.html' %}
 {% load staticfiles %}
+{% block top_js %}
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.add_goods').click(function () {
+                $.ajaxSetup({
+                    data:{csrfmiddlewaretoken:'{{ csrf_token }}'}
+                });
+                good_id = $(this).attr('good_id');
+                param = {'good_id':good_id,'count':'1'};
+                $.post('/cart/add/',param,function (data) {
+                    if(data.res == 0){
+                        alert('添加成功')
+                    }else{
+                        alert(data.errmsg)
+                    }
+                })
+            })
+        })
+    </script>
+{% endblock top_js %}
 {% block right_content %}
 		<div class="right_content clearfix">
 				<div class="info_con clearfix">
@@ -26,7 +47,7 @@
                             <div class="operate">
                                 <span class="prize">￥{{ good.price }}</span>
                                 <span class="unit">{{ good.price }}/{{ good.unite }}</span>
-                                <a href="#" class="add_goods" title="加入购物车"></a>
+                                <a href="#" good_id="{{ good.id }}" class="add_goods" title="加入购物车"></a>
                             </div>
 				        </li>
                         {% empty %}

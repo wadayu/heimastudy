@@ -20,17 +20,17 @@ class BaseAdmin(object):
         # 当数据更新的时候删除缓存
         cache.delete('index_page_data')
 
-    def delete_models(self):
-        obj = self.new_obj
-        obj.save()
-
-        from celery_tasks.tasks import generate_static_index_html
-        # 当数据更新的时候重新生成静态页面
-        generate_static_index_html.delay()
-
-        from django.core.cache import cache
-        # 当数据更新的时候删除缓存
-        cache.delete('index_page_data')
+    # def delete_models(self):
+    #     obj = self.new_obj
+    #     obj.save()
+    #
+    #     from celery_tasks.tasks import generate_static_index_html
+    #     # 当数据更新的时候重新生成静态页面
+    #     generate_static_index_html.delay()
+    #
+    #     from django.core.cache import cache
+    #     # 当数据更新的时候删除缓存
+    #     cache.delete('index_page_data')
 
 
 class GoodsTypeAdmin(BaseAdmin):
@@ -50,8 +50,9 @@ class GoodsAdmin(BaseAdmin):
 
 class GoodsSKUAdmin(BaseAdmin):
     list_display = ['type', 'goods', 'name', 'desc', 'price','unite','image','stock','sales','status','create_time', 'update_time', 'is_delete']
-    search_fields = ['type', 'goods', 'name', 'desc', 'price','unite','image','stock','sales','status','create_time', 'update_time', 'is_delete']
+    search_fields = ['type__name', 'goods__name', 'name', 'desc', 'price','unite','image','stock','sales','status','create_time', 'update_time', 'is_delete']
     list_filter = ['type__name', 'goods__name', 'name', 'desc', 'price','unite','image','stock','sales','status','create_time', 'update_time', 'is_delete']
+    list_editable = ['stock', 'desc']
     model_icon = 'fa fa-dashcube'
 
 

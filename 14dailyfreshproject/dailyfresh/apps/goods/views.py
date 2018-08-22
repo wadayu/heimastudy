@@ -67,7 +67,7 @@ class DetailView(View):
         # 所有类型
         all_types = GoodsType.objects.all()
         # 同类新品
-        new_goods = GoodsSKU.objects.filter(type=goods.type).order_by('-create_time')[:2]
+        new_goods = GoodsSKU.objects.filter(type=goods.type).exclude(id=goods.id).order_by('-create_time')[:2]
         # 商品的所有评论
         all_comments = OrderGoods.objects.filter(sku=goods).exclude(comment='')
         # 购物车数量

@@ -9,8 +9,9 @@
 
         {# 更改默认地址及删除 #}
         $('#defalut').delegate('input','click',function () {
-            id = $(this).prop('name');
+            id = $(this).attr('add_id');
             val = $(this).val();
+            tag_dd = $(this);
             $.ajax({
                 url:"{% url 'user:update_address' %}",
                 type: "POST",
@@ -23,10 +24,10 @@
             }).done(function(data){
                if(data.status == 'success'){
                    {# alert("更改成功");#}
-                   window.location.href=window.location.href;
+                   tag_dd.prop('disabled',true).parent().siblings().children('input[name=default]').prop('disabled',false)
                }else if(data.status == 'delete_success'){
                    alert("删除成功");
-                   window.location.href=window.location.href;
+                   tag_dd.parent().remove()
                }
             })
         });
@@ -76,8 +77,8 @@
 					<dl id="defalut">
 						<dt>常用地址：</dt>
                         {% for address in all_address %}
-                            <dd><input type="button" value="删除" name="{{ address.id }}">{% ifequal address.is_default 0 %}<input type="button" value="默认" name="{{ address.id }}">{% else %}
-                                <input type="button" value="默认" disabled="disabled">{% endifequal %} {{ address.addr }} （{{ address.receiver }} 收） {{ address.phone }}</dd>
+                            <dd>{% ifequal address.is_default 0 %}<input type="button" value="默认" name='default' add_id="{{ address.id }}">{% else %}
+                                <input type="button" name='default' add_id="{{ address.id }}" value="默认" disabled>{% endifequal %}<input type="button" name='del' value="删除" add_id="{{ address.id }}"> {{ address.addr }} （{{ address.receiver }} 收） {{ address.phone }}</dd>
                         {% endfor %}
 					</dl>
 				</div>

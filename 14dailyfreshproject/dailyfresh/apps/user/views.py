@@ -215,8 +215,12 @@ class UserInfoView(LoginRequiredMixin,View):
         # 根据商品的id获取商品详情信息
         goods_li = []
         for good_id in sku_ids:
-            good = GoodsSKU.objects.get(id=int(good_id))
-            goods_li.append(good)
+            try:
+                good = GoodsSKU.objects.get(id=int(good_id))
+                goods_li.append(good)
+            except GoodsSKU.DoesNotExist as e:
+                # 找不到good_id对应的商品，就删除对应的浏览记录
+                con.lrem(history_key,0,good_id) # lrem 删除redis list内的对应值
 
         # 获取默认收货地址
         address = Address.objects.get_default_address(user=request.user)
