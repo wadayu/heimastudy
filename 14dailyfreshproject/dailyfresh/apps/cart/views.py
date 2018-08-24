@@ -26,8 +26,10 @@ class CartAddView(View):
         count = int(request.POST.get('count'))
 
         # 获取商品的库存
-        stock = GoodsSKU.objects.get(id=good_id).stock
-
+        try:
+            stock = GoodsSKU.objects.get(id=good_id).stock
+        except Exception as e:
+            return JsonResponse({'res': 2, 'errmsg': '添加异常'})
         # 连接redis
         conn = get_redis_connection('default')
         cart_key = 'cart_%s' %user.id
@@ -37,14 +39,14 @@ class CartAddView(View):
             count += int(cart_count)
         # 判断库存的数量 如果大于库存就不能添加
         if count > stock:
-            return JsonResponse({'res': 2, 'errmsg': '库存不足'})
+            return JsonResponse({'res': 3, 'errmsg': '库存不足'})
         # 更新购物车数量
         conn.hset(cart_key,good_id,count)
 
         #获取用户的购物车总条目
         total_count = conn.hlen(cart_key)
 
-        return JsonResponse({'res': 0, 'mssage': '添加成功','total_count':'total_count'})
+        return JsonResponse({'res': 0, 'mssage': '添加成功','total_count':total_count})
 
 # /cart/info
 class CartInfoView(LoginRequiredMixin,View):
@@ -101,14 +103,17 @@ class CartUpdateView(View):
         count = int(request.POST.get('count'))
 
         # 获取商品的库存
-        stock = GoodsSKU.objects.get(id=good_id).stock
+        try:
+            stock = GoodsSKU.objects.get(id=good_id).stock
+        except Exception as e:
+            return JsonResponse({'res': 2, 'errmsg': '添加异常'})
 
         # 连接redis
         conn = get_redis_connection('default')
         cart_key = 'cart_%s' %user.id
         # 判断库存的数量 如果大于库存就不能添加
         if count > stock:
-            return JsonResponse({'res': 2, 'errmsg': '库存不足'})
+            return JsonResponse({'res': 3, 'errmsg': '库存不足'})
         # 更新购物车数量
         conn.hset(cart_key,good_id,count)
 

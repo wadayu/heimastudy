@@ -13,11 +13,13 @@ import re
 # 对数据进行加密 （pip install itsdangerous）
 from itsdangerous import TimedJSONWebSignatureSerializer as serializer
 from itsdangerous import SignatureExpired # 过期异常
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 from celery_tasks.tasks import send_register_email,send_update_email
 from utils.mixin import LoginRequiredMixin
 from user.models import User,Address
 from goods.models import GoodsSKU
+from order.models import OrderInfo,OrderGoods
 
 
 # /register
@@ -235,8 +237,34 @@ class UserInfoView(LoginRequiredMixin,View):
 class UserOrderView(LoginRequiredMixin,View):
     # 个人订单
     def get(self,request):
-        page = 'order'
-        return render(request,'user_center_order.html',{'page':page})
+        user = request.user
+        # 用户的所有订单信息
+        orders = OrderInfo.objects.filter(user=user).order_by('-create_time')
+        for order in orders:
+            # 订单内的所有商品
+            all_goods = OrderGoods.objects.filter(order=order.order_id)
+            for good in all_goods:
+                # 计算商品的小计
+                amount = good.price * good.count
+                # 动态给商品增加小计价格
+                good.amount = amount
+            # 动态给订单增加订单内的所有商品信息
+            order.all_goods = all_goods
+
+        # 分页功能
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        p = Paginator(orders, 2, request=request)
+        all_orders = p.page(page)
+
+        context = {
+            'page':'order',
+            'orders':all_orders
+        }
+        return render(request,'user_center_order.html',context)
 
 
 # /user/address

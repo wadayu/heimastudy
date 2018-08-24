@@ -41,20 +41,22 @@
         });
 
         // 对应的商品checked的状态改变时，设置全选的checked状态及结算价格的更新--------------------------------------
-        $('.cart_list_td').find(':checkbox').change(function () {
-            // 所有type=checkbox的数量
-            all_len = $('.cart_list_td').find(':checkbox').length;
-            // 所有checked=checked的数量
-            checked_len = $('.cart_list_td').find(':checked').length;
+        count_cart_list()
+        function count_cart_list() {
+            $('.cart_list_td').find(':checkbox').change(function () {
+                // 所有type=checkbox的数量
+                all_len = $('.cart_list_td').find(':checkbox').length;
+                // 所有checked=checked的数量
+                checked_len = $('.cart_list_td').find(':checked').length;
 
-            if(checked_len < all_len){
-                $('.settlements').find(':checkbox').prop('checked',false)
-            }else{
-                $('.settlements').find(':checkbox').prop('checked',true)
-            }
-            update_price()
-        });
-
+                if(checked_len < all_len){
+                    $('.settlements').find(':checkbox').prop('checked',false)
+                }else{
+                    $('.settlements').find(':checkbox').prop('checked',true)
+                }
+                update_price()
+            });
+        };
         // <----------------------购物车更新时调用的函数----------------------------->
         // 单个商品小计价格
         function update_goods_amount(good_ul) {
@@ -169,6 +171,7 @@
                     $(this).parents('ul').find('.col01').find('input').prop({'type':'checkbox','checked':true}).css('display','')
                 }
                 update_price()
+                count_cart_list()
             }
             // 设置顶头的总数量
             $('.total_count').children().text(all_count)
@@ -210,12 +213,13 @@
 		<li class="col05">小计</li>
 		<li class="col06">操作</li>
 	</ul>
+    <form method="post" action="{% url 'order:place' %}">
     {% for good in goods %}
 	    <ul class="cart_list_td clearfix">
         {% if good.stock < good.count %}
             <li class="col01"><input type="checkbox1" name="" style="display:none;"></li>
         {% else %}
-		    <li class="col01"><input type="checkbox" name="" checked></li>
+		    <li class="col01"><input type="checkbox" name="good_id" value="{{ good.id }}" checked></li>
         {% endif %}
 		<li class="col02"><a href="{% url 'goods:detail' good.id %}"><img src="{{ good.image.url }}"></a></li>
 		<li class="col03"><a href="{% url 'goods:detail' good.id %}">{{ good.name }}</a><br><em>{{ good.price }}元/{{ good.unite }}</em><br>{% if good.stock < good.count %}<span style="color: red;display: block">目前库存还有 {{ good.stock }} 件</span>{% endif %}</li>
@@ -241,6 +245,8 @@
 		<li class="col01"><input type="checkbox" name="" checked=""></li>
 		<li class="col02">全选</li>
 		<li class="col03">合计(不含运费)：<span>¥</span><em>{{ total_amount }} 元</em><br>共计<b>{{ total_count }}</b>件商品</li>
-		<li class="col04"><a href="place_order.html">去结算</a></li>
+		<li class="col04"><input type="submit" value="去结算"></li>
 	</ul>
+    {% csrf_token %}
+    </form>
 {% endblock body %}
