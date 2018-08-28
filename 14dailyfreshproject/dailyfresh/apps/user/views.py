@@ -240,6 +240,7 @@ class UserOrderView(LoginRequiredMixin,View):
         user = request.user
         # 用户的所有订单信息
         orders = OrderInfo.objects.filter(user=user).order_by('-create_time')
+        order_status = {1: '待支付',2:'待发货',3:'待收货',4:'待评价',5:'已完成'}
         for order in orders:
             # 订单内的所有商品
             all_goods = OrderGoods.objects.filter(order=order.order_id)
@@ -250,6 +251,7 @@ class UserOrderView(LoginRequiredMixin,View):
                 good.amount = amount
             # 动态给订单增加订单内的所有商品信息
             order.all_goods = all_goods
+            order.status = order_status[order.order_status]
 
         # 分页功能
         try:
@@ -312,6 +314,32 @@ class UpdateDefaultAddressView(View):
         else:
             Address.objects.get(id=int(address_id)).delete()
             return JsonResponse({'status': 'delete_success'})
+
+class UserCommentView(LoginRequiredMixin,View):
+    """用户的所有评论"""
+    def get(self,request):
+        orders = OrderInfo.objects.filter(user=request.user).order_by('-create_time')
+        for order in orders:
+            all_goods = OrderGoods.objects.filter(order=order)
+            for good in all_goods:
+                amount = good.price * good.count
+                good.amount = amount
+            order.all_goods = all_goods
+
+        # 分页功能
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        p = Paginator(orders, 2, request=request)
+        all_orders = p.page(page)
+
+        context = {
+            'page':'comment',
+            'all_orders':all_orders
+        }
+        return render(request,'user_center_comment.html',context)
 
 
 
