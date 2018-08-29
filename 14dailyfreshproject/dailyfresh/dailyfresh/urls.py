@@ -29,3 +29,8 @@ urlpatterns = [
     # 富文本编辑器
     url(r'^ueditor/',include('DjangoUeditor.urls' )),
 ]
+
+# 全局404页面配置
+handler404 = 'user.views.page_notfound'
+# 全局500页面配置
+handler500 = 'user.views.page_error'

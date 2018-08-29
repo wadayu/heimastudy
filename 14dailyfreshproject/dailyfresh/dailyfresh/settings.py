@@ -140,7 +140,7 @@ EMAIL_PORT = 25
 # 发送邮件的邮箱
 EMAIL_HOST_USER = 'wadayu@163.com'
 # 在邮箱中设置的客户端授权密码
-EMAIL_HOST_PASSWORD = 'WDY1990'
+EMAIL_HOST_PASSWORD = 'beijing888'
 # 收件人看到的发件人
 EMAIL_FROM = '天天生鲜<wadayu@163.com>'
 
