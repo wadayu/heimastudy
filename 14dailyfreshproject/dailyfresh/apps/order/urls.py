@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^commit/$', OrderCommitView.as_view(), name='commit' ), # 订单创建
     url(r'^pay/$', OrderPayView.as_view(), name='pay' ), # 订单付款
     url(r'^check/$', CheckPayView.as_view(), name='check'),  # 查询支付交易结果
-    url(r'^comment/(?P<order_id>\d+)/$', OrderCommentView.as_view(),name='comment')
+    url(r'^comment/(?P<order_id>\d+)/$', OrderCommentView.as_view(),name='comment') # 订单评论
 ]
