@@ -5,6 +5,7 @@ __date__ = '2018/8/7 15:49'
 import xadmin
 
 from goods.models import GoodsType,Goods,GoodsSKU,GoodsImage,IndexGoodsBanner,IndexTypeGoodsBanner,IndexPromotionBanner
+from xadmin.views.base import ModelAdminView, filter_hook, csrf_protect_m
 
 class BaseAdmin(object):
     """当从后台更新数据库时，调用指定的函数"""
@@ -20,17 +21,18 @@ class BaseAdmin(object):
         # 当数据更新的时候删除缓存
         cache.delete('index_page_data')
 
-    # def delete_models(self):
-    #     obj = self.new_obj
-    #     obj.save()
-    #
-    #     from celery_tasks.tasks import generate_static_index_html
-    #     # 当数据更新的时候重新生成静态页面
-    #     generate_static_index_html.delay()
-    #
-    #     from django.core.cache import cache
-    #     # 当数据更新的时候删除缓存
-    #     cache.delete('index_page_data')
+    def delete_models(self,*args,**kwargs):
+        # *args 返回的一个QuerySet对象
+        for obj in args:
+            obj.delete()
+
+        from celery_tasks.tasks import generate_static_index_html
+        # 当数据更新的时候重新生成静态页面
+        generate_static_index_html.delay()
+
+        from django.core.cache import cache
+        # 当数据更新的时候删除缓存
+        cache.delete('index_page_data')
 
 
 class GoodsTypeAdmin(BaseAdmin):
