@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            $('a').click(function () {
+                book_id = $(this).attr('book_id');
+                $obj = $(this);
+                data = {'book_id':book_id};
+                // 将js中的对象转换为 json字符串
+                // var json_data = JSON.stringify(data);
+                // $.ajaxSetup({
+                //    data:{csrfmiddlewaretoken:'{{ csrf_token }}'}
+                // });
+                $.post('/delete_book',data,function (data) {
+                    if (data.res==0){
+                        $obj.parents('ul').remove()
+                    }else{
+                        alert(data.errmsg)
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <form method="post" action="">
+        {{ form.csrf_token }}
+        <br>
+        {{ form.book_name.label }}{{ form.book_name }}
+        {% for err in form.book_name.errors %}
+            {{ err }}
+        {% endfor %}
+        <br>
+        {{ form.author.label }}{{ form.author }}
+        {% for err in form.author.errors %}
+            {{ err }}
+        {% endfor %}
+        <br>
+        {{ form.submit }}
+    </form>
+
+    <hr>
+
+    {% for book in books %}
+        <ul>
+            <li style="color: red">书名：{{ book.name }} 添加时间：{{ book.create_time }}  <a style="text-decoration: none" href="javascript:;" book_id={{ book.id }}>删除</a></li>
+            <li style="color: black;">作者：{{ book.author.name }}</li>
+        </ul>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <p>username: {{ username |upper}}</p>
+    <p>gender: {{ gender |title}}</p>
+    <p>sum: {{ my_list[5] + my_list[6] }}</p>
+    {% for i in my_list %}
+        {{ i }}
+    {% endfor %}
+    <p>自定义过滤器</p>
+    <p>{{ my_list | filter }}</p>
+    <p>{{ my_list | filter2 }}</p>
+    <p>关闭转义</p>
+    <p>{{ content |safe }}</p>
+</body>
+</html>

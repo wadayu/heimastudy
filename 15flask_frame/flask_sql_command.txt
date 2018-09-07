@@ -1,0 +1,88 @@
+# 查询所有
+In [26]: User.query.all()
+Out[26]: [User Object:wang, User Object:zhang, User Object:chen, User Object:zhou]
+
+# 查询第一个
+In [28]: User.query.first()
+Out[28]: User Object:wang
+
+# 查询id为1的
+In [41]: User.query.get(1)
+Out[41]: User Object:wang
+
+# filter_by为精确查询
+In [68]: User.query.filter_by(name='wang').all()
+Out[68]: [User Object:wang]
+
+In [83]: u = User.query.filter_by(name='wang').first()
+In [84]: u.name
+Out[84]: u'wang'
+
+In [88]: User.query.filter_by(name='wang',email='wang@163.com').all() # 精确查询name=wang and email=wang@163.com
+Out[88]: [User Object:wang]
+
+# filter为模糊查询,支持运算符
+In [147]: User.query.filter(User.name=='wang',User.email=='wang@163.com').all()  # and查询
+Out[121]: [User Object:wang]
+
+In [122]: User.query.filter(User.name!='wang').all()  # 不等查询
+Out[122]: [User Object:zhang, User Object:chen, User Object:zhou]
+
+In [124]: User.query.filter(User.name.like('%an%')).all()  # like 查询
+Out[124]: [User Object:wang, User Object:zhang]
+
+In [132]: User.query.filter(User.name.in_(['wang','zhou'])).all()  # in 查询
+Out[132]: [User Object:wang, User Object:zhou]
+
+In [146]: User.query.filter(or_(User.name=='wang',User.email=='zhou@163.com')).all() # or查询   from sqlalchemy import or_
+Out[146]: [User Object:wang, User Object:zhou]
+
+In [150]: User.query.filter(or_(User.name=='wang',User.email.endswith('163.com'))).all()
+Out[150]: [User Object:wang, User Object:zhou]
+
+# offset():跳过几条查询 limit():只显示几条
+In [161]: User.query.offset(1).limit(2).all()  # 跳过第一条后，只显示跳过去剩下的前两条
+Out[161]: [User Object:zhang, User Object:chen]
+
+# order_by排序
+In [172]: User.query.order_by(User.id.desc()).all() # 降序排列
+Out[172]: [User Object:zhou, User Object:chen, User Object:zhang, User Object:wang]
+
+In [174]: User.query.order_by(User.id).all() # 默认升序排列 User.id.asc()
+Out[174]: [User Object:wang, User Object:zhang, User Object:chen, User Object:zhou]
+
+# 外键关系的查询
+In [195]: role = Roles.query.get(1)
+In [196]: role.users
+Out[196]: [User Object:wang, User Object:chen]
+
+In [181]: user = User.query.get(1)
+In [182]: user.role.name
+Out[182]: u'admin'
+
+# 查询并更新  from sqlalchemy_demo import db从当前的文件要引入db
+In [209]: User.query.filter_by(name='wang').update({'name':'wanggang','email':'wadayu@163.com'})
+     ...:
+Out[209]: 1
+In [211]: db.session.commit()
+
+# 查询并删除
+In [216]: User.query.filter_by(name='John').delete()
+Out[216]: 1
+In [217]: db.session.commit()
+
+In [218]: user = User.query.get(2)
+In [219]: db.session.delete(user)
+In [220]: db.session.commit()
+
+
+
+
+
+
+
+
+
+
+
+
