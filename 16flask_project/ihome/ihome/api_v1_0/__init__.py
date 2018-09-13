@@ -1,6 +1,7 @@
 #coding:utf-8
 from flask import Blueprint
 
-app_user = Blueprint('app_user',__name__)
+# 创建蓝图
+api = Blueprint('api_v1_0',__name__)
 
 from .views import *
