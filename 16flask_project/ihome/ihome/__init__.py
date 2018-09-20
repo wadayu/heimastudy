@@ -8,7 +8,8 @@ from flask_wtf import CSRFProtect
 from flask_session import Session
 
 from config import config_map
-from ihome.api_v1_0 import api
+from utils.commons import RegexConverter
+
 
 # # 配置日志信息
 # # 创建日志记录器，指明日志保存的路径、每个日志文件的最大大小、保存的日志文件个数上限
@@ -20,7 +21,7 @@ from ihome.api_v1_0 import api
 # # 为全局的日志工具对象（flask app使用的）添加日记录器
 # logging.getLogger().addHandler(file_log_handler)
 # # 设置日志的记录等级
-# logging.basicConfig(level=logging.DEBUG)  # 调试debug级
+# logging.basicConfig(level=logging.D     EBUG)  # 调试debug级
 
 # 创建数据库对象
 db = SQLAlchemy()
@@ -48,6 +49,13 @@ def create_app(type):
     global  redis_conn
     redis_conn = redis.StrictRedis(host=app.config['REDIS_HOST'], port=app.config['REDIS_PORT'],db=app.config['REDIS_DB'])
     
+    # 为flask添加转换器
+    app.url_map.converters['re'] = RegexConverter
     # 注册蓝图
-    app.register_blueprint(api,url_prefix='/api_v1_0')
+    from ihome.api_v1_0 import api
+    app.register_blueprint(api,url_prefix='/api/v1.0')
+
+    from ihome.html_web import html
+    app.register_blueprint(html)
+
     return app

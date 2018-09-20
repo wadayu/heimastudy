@@ -22,6 +22,8 @@ class Config(object):
 
 class DeveConfig(Config):
     """开发环境"""
+    FDFS_CLIENT_CONF = 'ihome/utils/fdfs/client.conf'
+    IMAGE_STORAGE_URL = 'http://192.168.19.131:8888/'
     pass
 
 class ProdConfig(Config):
