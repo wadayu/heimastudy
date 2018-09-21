@@ -246,8 +246,7 @@ def logout():
     用户退出，删除session
     :return: 0：成功退出 非0：退出失败
     """
-    del session['username']
-    # session.clear()
+    session.clear()
     return jsonify(errno=RET.OK, errmsg=u'退出成功')
 
 # GET 127.0.0.1:5000/api/v1.0/user/is_login
@@ -347,27 +346,72 @@ def update_username():
         db.session.rollback()
         current_app.logger.error(e)
         return jsonify(errno=RET.DATAERR, errmsg=u'用户名更新失败')
+    # 修改session信息
+    session['username'] = username
     # 返回消息
     return jsonify(errno=RET.OK, errmsg=True, data={'username': username})
 
 
 # GET /api/v1.0/user/user_home
 @api.route('/user/user_home')
+@login_required
 def user_home():
     """
     个人的home主页
     :return:  展示个人的用户名和手机号及订单详情
     """
-    # 如果用户登录 则通过session获取用户的ID 
-    user_id = session.get('user_id')
-    # 判断用户是否登录
-    if not user_id:
-        return jsonify(errno=RET.NODATA,errmsg=u'用户未登录')
+    # 获取用户ID
+    user_id = g.user_id
     # 获取用户的信息
     try:
         user = User.query.filter_by(id=user_id).first()
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DATAERR, errmsg=u'获取用户信息失败')
+    image_url = current_app.config.get('IMAGE_STORAGE_URL') + user.avatar_url
     # 返回用户信息 
-    return jsonify(errno=RET.OK, errmsg=True,data={'username':user.name,'mobile':user.mobile})
+    return jsonify(errno=RET.OK, errmsg=True,data={'username':user.name,'mobile':user.mobile,'image_url':image_url})
+
+
+# GET POST /api/v1.0/user/real_name_auth
+@api.route('/user/real_name_auth',methods=['GET','POST'])
+@login_required
+def real_name_auth():
+    """
+    展示用户的实名认证信息
+    :return: 0：成功 非0：GET:获取用户信息 POST更改用户信息
+    """
+    # 获取用户ID
+    user_id = g.user_id
+    # 获取用户的信息
+    try:
+        user = User.query.filter_by(id=user_id).first()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DATAERR, errmsg=u'获取用户信息失败')
+
+    if request.method == 'GET':
+        # 返回用户信息
+        return jsonify(errno=RET.OK, errmsg=True, data={'real_name': user.real_name, 'id_cart': user.id_card})
+    if request.method == 'POST':
+        # 如果用户之前修改过信息则不允许更新
+        if user.real_name and user.id_card:
+            return jsonify(errno=RET.DBERR, errmsg=u'更新失败')
+        # 获取参数
+        data = request.get_json()
+        real_name = data.get('real_name')
+        id_card = data.get('id_cart')
+        # 校验参数
+        if not all([real_name,id_card]):
+            return jsonify(errno=RET.DATAERR,errmsg=u'参数不完整')
+        # 校验id_cart
+        pattern = "[^0]\d{5}(18|19|2([0-9]))\d{2}(0[0-9]|10|11|12)([0-2][1-9]|30|31)\d{3}[0-9Xx]$"
+        if not re.match(pattern,id_card):
+            return jsonify(errno=RET.DATAERR, errmsg=u'身份证不合法')
+        # 修改数据库
+        user.real_name = real_name
+        user.id_card = id_card
+        db.session.add(user)
+        db.session.commit()
+        # 返回结果
+        return jsonify(errno=RET.OK, errmsg=True, data={'real_name': real_name, 'id_cart': id_card})

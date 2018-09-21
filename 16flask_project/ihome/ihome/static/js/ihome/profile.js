@@ -26,6 +26,9 @@ $(function () {
             if (data.errno == 0){
                 $('#user-avatar').attr('src',data.data.image_url)
             }else{
+                if (data.errno == 4101){
+                    location.href = '/login.html';
+                }
                 alert(data.errmsg)
             }}
         })
@@ -37,7 +40,11 @@ $(function () {
             $('#user-avatar').attr('src',data.data.image_url);
             $('#user-name').val(data.data.username)
         }else{
+            if (data.errno == 4101){
+                location.href = '/login.html';
+            }
             alert(data.errmsg)
+            
         }
     });
 
@@ -58,8 +65,12 @@ $(function () {
             headers:{'X-CSRFToken':getCookie('csrf_token')}
         }).done(function (data) {
             if (data.errno == 0){
-                $('#user-name').val(data.data.username)
+                $('#user-name').val(data.data.username);
+                alert('修改成功')
             }else{
+                if (data.errno == 4101){
+                    location.href = '/login.html';
+                }
                 alert(data.errmsg)
             }
         })
