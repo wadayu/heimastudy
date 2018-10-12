@@ -49,11 +49,10 @@ function sendSMSCode() {
             if (0 != data.errno) {
                 $("#image-code-err span").html(data.errmsg); 
                 $("#image-code-err").show();
-                if (2 == data.errno || 3 == data.errno) {
+                if (4002 == data.errno || 4004 == data.errno) {
                     generateImageCode();
                 }
-                $(".phonecode-a").attr("onclick", "sendSMSCode();");
-            }   
+            }
             else {
                 var $time = $(".phonecode-a");
                 var duration = 120;
@@ -62,11 +61,11 @@ function sendSMSCode() {
                     if(duration === 1){
                         clearInterval(intervalid);
                         $time.html('获取验证码'); 
-                        $(".phonecode-a").attr("onclick", "sendSMSCode();");
                     }
                     duration = duration - 1;
                 }, 1000, 120);
-            }
+            };
+            $(".phonecode-a").attr("onclick", "sendSMSCode();");
     }, 'json'); 
 }
 

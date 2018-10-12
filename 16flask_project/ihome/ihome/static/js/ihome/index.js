@@ -1,7 +1,7 @@
 //模态框居中的控制
 function centerModals(){
     $('.modal').each(function(i){   //遍历每一个模态框
-        var $clone = $(this).clone().css('display', 'block').appendTo('body');    
+        var $clone = $(this).clone().css('display', 'block').appendTo('body');
         var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
         top = top > 0 ? top : 0;
         $clone.remove();
@@ -58,14 +58,14 @@ function goToSearchPage(th) {
 }
 
 $(document).ready(function(){
-    $(".top-bar>.register-login").show();
-    var mySwiper = new Swiper ('.swiper-container', {
-        loop: true,
-        autoplay: 2000,
-        autoplayDisableOnInteraction: false,
-        pagination: '.swiper-pagination',
-        paginationClickable: true
-    }); 
+    // $(".top-bar>.register-login").show();
+    // var mySwiper = new Swiper ('.swiper-container', {
+    //     loop: true,
+    //     autoplay: 2000,
+    //     autoplayDisableOnInteraction: false,
+    //     pagination: '.swiper-pagination',
+    //     paginationClickable: true
+    // });
     $(".area-list a").click(function(e){
         $("#area-btn").html($(this).html());
         $(".search-btn").attr("area-id", $(this).attr("area-id"));
@@ -85,6 +85,7 @@ $(document).ready(function(){
         $("#start-date-input").val(date);
     });
 
+    // 判断用户是否登录
     $.ajax({
         url:'/api/v1.0/user/is_login',
         type:'GET',
@@ -98,5 +99,21 @@ $(document).ready(function(){
              $('.register-login').show();
             $('.user-info').hide()
         }
-    })
+    });
+
+        // 获取地区
+    $.get('/api/v1.0/areas',function (data) {
+        if (data.errno == "0"){
+            $(".area-list").html(template("area-list-tmpl", {areas:data.data}));
+
+            $(".area-list a").click(function(e){
+                $("#area-btn").html($(this).html());
+                $(".search-btn").attr("area-id", $(this).attr("area-id"));
+                $(".search-btn").attr("area-name", $(this).html());
+                $("#area-modal").modal("hide");
+            });
+        }else{
+            alert(data.errmsg)
+        }
+    });
 })

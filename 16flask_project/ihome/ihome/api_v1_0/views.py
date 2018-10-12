@@ -12,14 +12,12 @@ from ihome import models
 from ihome.utils.captcha.captcha import captcha
 from ihome.utils.response_code import RET
 from ihome.models import User
-from ihome.libs.sms.sms import CCP
 from ihome.utils.commons import login_required
 from ihome.utils.fdfs.storage import FDFSStorage
+from ihome.tasks.sms.tasks import send_sms
 
 
-
-
-# GET 127.0.0.1:5000/api/v1.0/image_code/<image_code_id>
+# GET 127.0.0.1:5000/api/v1.0/image_codes/<image_code_id>
 @api.route('/image_codes/<image_code_id>')
 def get_image_code(image_code_id):
     """
@@ -99,18 +97,10 @@ def get_sms_code(mobile):
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg=u'redis连接失败')
-    # 发送短信验证码
-    try:
-        ccp = CCP()
-        res = ccp.sendTemplateSMS(mobile,[sms_code,5],1)
-    except Exception as e:
-        current_app.logger.error(e)
-        return jsonify(errno=RET.THIRDERR, errmsg=u'验证码发送异常')
-    # 返回状态码
-    if res == 0:
-        return jsonify(errno=RET.OK, errmsg=u'验证码发送成功')
-    else:
-        return jsonify(errno=RET.THIRDERR, errmsg=u'验证码发送失败')
+    # celery异步发送短信验证码
+    send_sms.delay(mobile,[sms_code,5],1)
+
+    return jsonify(errno=RET.OK, errmsg=u'验证码发送成功')
 
 
 # POST 127.0.0.1:5000/api/v1.0/user/register

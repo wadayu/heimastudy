@@ -1,0 +1,3 @@
+#coding:utf-8
+BROKER_URL = "redis://192.168.19.131:6379/14"
+CELERY_RESULT_BACKEND = 'redis://192.168.19.131:6379/15'

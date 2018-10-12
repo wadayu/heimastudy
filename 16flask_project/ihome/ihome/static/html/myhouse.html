@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="houses-con">
-            <ul class="houses-list auth-warn">
+            <ul class="houses-list auth-warn" id="user_auth">
                 <li>
                     <div class="house-title">
                         <h3>尚未进行实名认证，无法发布房屋信息！</h3>
@@ -32,44 +32,31 @@
                 </li>
             </ul>
             <ul id="houses-list" class="houses-list">
-                <li>
+                <li id="new_house">
                     <div class="new-house">
                         <a href="/newhouse.html">发布新房源</a>
                     </div>
                 </li>
                 <li>
-                    <a href="/detail.html?id={{house.house_id}}&f=my">
-                        <div class="house-title">
-                            <h3>房屋ID:1 —— 房屋标题1</h3>
-                        </div>
-                        <div class="house-content">
-                            <img src="/static/images/home01.jpg">
-                            <div class="house-text">
-                                <ul>
-                                    <li>位于：西城区</li>
-                                    <li>价格：￥200/晚</li>
-                                    <li>发布时间：2016-11-11 20:00:00</li>
-                                </ul>
-                            </div> 
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="/detail.html?id={{house.house_id}}&f=my">
-                        <div class="house-title">
-                            <h3>房屋ID:1 —— 房屋标题1</h3>
-                        </div>
-                        <div class="house-content">
-                            <img src="/static/images/home01.jpg">
-                            <div class="house-text">
-                                <ul>
-                                    <li>位于：西城区</li>
-                                    <li>价格：￥200/晚</li>
-                                    <li>发布时间：2016-11-11 20:00:00</li>
-                                </ul>
-                            </div> 
-                        </div>
-                    </a>
+                    <script type="text/html" id="user_houses">
+                        {{ each houses as house }}
+                            <a href="/detail.html?id={{house.house_id}}&f=my">
+                                <div class="house-title">
+                                    <h3>房屋ID:{{house.house_id}} —— {{house.title}}</h3>
+                                </div>
+                                <div class="house-content">
+                                    <img src="{{ house.image_url }}">
+                                    <div class="house-text">
+                                        <ul>
+                                            <li>位于：{{house.address}}</li>
+                                            <li>价格：￥{{(house.price/100).toFixed(2)}}/晚</li>
+                                            <li>发布时间：{{house.ctime}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        {{ /each }}
+                    </script>
                 </li>
             </ul>
         </div>

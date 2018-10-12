@@ -21,7 +21,7 @@ from utils.commons import RegexConverter
 # # 为全局的日志工具对象（flask app使用的）添加日记录器
 # logging.getLogger().addHandler(file_log_handler)
 # # 设置日志的记录等级
-# logging.basicConfig(level=logging.D     EBUG)  # 调试debug级
+# logging.basicConfig(level=logging.DEBUG)  # 调试debug级
 
 # 创建数据库对象
 db = SQLAlchemy()

@@ -83,6 +83,7 @@ body {
 .house-text>ul>li {
     height: 25px;
     line-height: 25px;
+    overflow: hidden;
     color: #666;
 }
 .auth-warn {
