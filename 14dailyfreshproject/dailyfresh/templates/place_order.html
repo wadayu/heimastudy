@@ -101,7 +101,11 @@
                         },3000)
                     });
                 }else{
-                    alert(data.errmsg)
+                    if (data.res == '4101'){
+                        location.href='/user/login/'
+                    }else{
+                        alert(data.errmsg);
+                    }
                 }
             })
 

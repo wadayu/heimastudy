@@ -64,6 +64,7 @@ class OrderPlaceView(LoginRequiredMixin,View):
         }
         return render(request,'place_order.html',context)
 
+# order/commit
 class OrderCommitView(View):
     """订单的创建"""
     @transaction.atomic()
@@ -71,7 +72,7 @@ class OrderCommitView(View):
         # 校验用户是否登录
         user = request.user
         if not user.is_authenticated():
-            return JsonResponse({'res':1,'errmsg':'用户未登录'})
+            return JsonResponse({'res':4101,'errmsg':'用户未登录'})
 
         add_id = request.POST.get('add_id','')
         pay_method = request.POST.get('pay_method','')
@@ -172,7 +173,7 @@ class OrderPayView(View):
         # 用户是否登录
         user = request.user
         if not user.is_authenticated():
-            return JsonResponse({'res':0, 'errmsg':'用户未登录'})
+            return JsonResponse({'res':4101, 'errmsg':'用户未登录'})
 
         # 接收参数
         order_id = request.POST.get('order_id')
@@ -225,7 +226,7 @@ class CheckPayView(View):
         # 用户是否登录
         user = request.user
         if not user.is_authenticated():
-            return JsonResponse({'res': 0, 'errmsg': '用户未登录'})
+            return JsonResponse({'res': 4101, 'errmsg': '用户未登录'})
 
         # 接收参数
         order_id = request.POST.get('order_id')

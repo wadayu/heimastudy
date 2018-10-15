@@ -42,7 +42,7 @@ def create_app(type):
     # app对象初始化db
     db.init_app(app)
     # 为flask补充csrf防护
-    CSRFProtect(app)
+    # CSRFProtect(app)
     # 将session数据保存到redis
     Session(app)
     # redis存储配置

@@ -20,7 +20,7 @@ class CartAddView(View):
         # 判断用户是否登录
         user = request.user
         if not user.is_authenticated():
-            return JsonResponse({'res':1,'errmsg':'用户未登录'})
+            return JsonResponse({'res':4101,'errmsg':'用户未登录'})
 
         good_id = request.POST.get('good_id')
         count = int(request.POST.get('count'))
@@ -97,7 +97,7 @@ class CartUpdateView(View):
         # 判断用户是否登录
         user = request.user
         if not user.is_authenticated():
-            return JsonResponse({'res':1,'errmsg':'用户未登录'})
+            return JsonResponse({'res':4101,'errmsg':'用户未登录'})
 
         good_id = request.POST.get('good_id')
         count = int(request.POST.get('count'))
@@ -133,7 +133,7 @@ class CartDeleteView(View):
         # 判断用户是否登录
         user = request.user
         if not user.is_authenticated():
-            return JsonResponse({'res':1,'errmsg':'用户未登录'})
+            return JsonResponse({'res':4101,'errmsg':'用户未登录'})
 
         good_id = request.POST.get('good_id')
         # 连接redis

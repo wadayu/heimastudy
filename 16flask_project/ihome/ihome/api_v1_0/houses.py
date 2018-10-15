@@ -249,14 +249,15 @@ def get_house_detail(house_id):
     if not house_id:
         return jsonify(errno=RET.PARAMERR,errmsg=u'参数错误')
 
-    # # 尝试从redis读取缓存
-    # try:
-    #     cache_data = redis_conn.get('house_detail_%s' %house_id)
-    # except Exception as e:
-    #     current_app.logger.error(e)
-    # if cache_data:
-    #     print ('从redis中读取缓存数据')
-    #     return jsonify(errno=RET.OK, errmsg=u'ok', data={'user_id': user_id, 'house_info': eval(cache_data)})
+    # 尝试从redis读取缓存
+    try:
+        cache_data = redis_conn.get('house_detail_%s' %house_id)
+    except Exception as e:
+        current_app.logger.error(e)
+    if cache_data:
+        print ('从redis中读取缓存数据')
+        response = {'errno': RET.OK, 'errmsg': u'ok', 'data': {'user_id': user_id, 'house_info': eval(cache_data)}}
+        return json.dumps(response), 200, {'Content-Type': 'application/json'}
 
     try:
         house = House.query.get(house_id)
@@ -276,7 +277,46 @@ def get_house_detail(house_id):
     except Exception as e:
         current_app.logger.error(e)
 
-    # response = '{"errno":"0", "errmsg":"OK", "data":{"user_id":%s, "house":%s}}' % (user_id, json_data), \
-    #        200, {"Content-Type": "application/json"}
-    # return  response
-    return jsonify(errno=RET.OK,errmsg=u'ok',data={'user_id':user_id,'house_info':house_data})
+    response = {'errno':RET.OK,'errmsg':u'ok','data':{'user_id':user_id,'house_info':house_data}}
+
+    return json.dumps(response),200,{'Content-Type':'application/json'}
+
+# GET /api/v1.0/houses/index
+@api.route('/houses/index',methods=['GET'])
+def get_houses_index():
+    """
+    获取房屋的index_image_url图片，并展示到主页
+    :return: image_urls
+    """
+    # 尝试从redis获取缓存
+    try:
+        cache_data = redis_conn.get('index_urls_data')
+    except Exception as e:
+        current_app.logger.error(e)
+
+    if cache_data:
+        print ('从redis读取数据')
+        response = {'errno': RET.OK, 'errmsg': 'ok', 'data': {'index_urls': eval(cache_data)}}
+        return json.dumps(response), 200, {'Content-Type': 'application/json'}
+
+    try:
+        houses = House.query.order_by(House.order_count.desc()).limit(5)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR,errmsg=u'获取数据失败')
+
+    image_urls = []
+
+    for house in houses:
+        if not house.index_image_url:
+            continue
+        image_urls.append(house.index_image_url)
+
+    # 设置缓存
+    try:
+        redis_conn.setex('index_urls_data',3600,image_urls)
+    except Exception as e:
+        current_app.logger.error(e)
+
+    response = {'errno':RET.OK,'errmsg':'ok','data':{'index_urls':image_urls}}
+    return json.dumps(response),200,{'Content-Type':'application/json'}

@@ -82,7 +82,11 @@
                     all_count = data.all_count
                 }else{
                     error_update = true;
-                    alert(data.errmsg);
+                    if (data.res == '4101'){
+                        location.href='/user/login/'
+                    }else{
+                        alert(data.errmsg);
+                    }
                 }
             });
             $.ajaxSettings.async = true;
@@ -195,7 +199,11 @@
                     // 设置顶头的总数量
                     $('.total_count').children().text(data.all_count)
                 }else{
-                    alert(data.errmsg)
+                    if (data.res == '4101'){
+                        location.href='/user/login/'
+                    }else{
+                        alert(data.errmsg);
+                    }
                 }
             });
         })
