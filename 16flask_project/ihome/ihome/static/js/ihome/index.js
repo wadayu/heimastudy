@@ -116,4 +116,22 @@ $(document).ready(function(){
             alert(data.errmsg)
         }
     });
+
+    // 获取首页index图片
+    $.get('/api/v1.0/houses/index',function (data) {
+        if (data.errno == "0"){
+            var content = template('index_img',{houses:data.data.houses_info});
+            $('.swiper-container').html(content)
+            // 图片轮播
+            var mySwiper = new Swiper ('.swiper-container', {
+                loop: true,
+                autoplay: 2000,
+                autoplayDisableOnInteraction: false,
+                pagination: '.swiper-pagination',
+                paginationType: 'fraction'
+            })
+        }else{
+            alert(data.errmsg)
+        }
+    })
 })

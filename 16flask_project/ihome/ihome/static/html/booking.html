@@ -21,11 +21,13 @@
             </div>
         </div>
         <div class="house-info">
-            <img src="/static/images/home01.jpg">
+            <script type="text/html" id="house_info">
+            <img src="{{ house.img_urls[0] }}">
             <div class="house-text">
-                <h3>房屋标题</h3>
-                <p>￥<span>300</span>/晚</p>
+                <h3>{{ house.title }}</h3>
+                <p>￥<span>{{ (house.price/100).toFixed(2) }}</span>/晚</p>
             </div>
+            </script>
         </div>
         <div class="select-date">
             <div class="select-date-header">入住时间</div>
@@ -51,6 +53,7 @@
     <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src="/static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script src="/static/js/template.js"></script>
     <script src="/static/js/ihome/booking.js"></script>
 </body>
 </html>

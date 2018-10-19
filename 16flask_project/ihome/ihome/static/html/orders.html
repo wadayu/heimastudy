@@ -24,7 +24,7 @@
             <ul class="orders-list">
             </ul>
             <script id="orders-list-tmpl" type="text/html">
-                {{if orders}}
+                {{ if orders != '' }}
                 {{each orders as order}}
                 <li order-id={{order.order_id}}>
                     <div class="order-title">
@@ -36,30 +36,32 @@
                         {{/if}}
                     </div>
                     <div class="order-content">
-                        <img src="{{order.img_url}}">
+                        <a href="detail.html?id={{ order.house_id }}"><img src="{{order.img_url}}"></a>
                         <div class="order-text">
                             <h3>{{order.title}}</h3>
                             <ul>
                                 <li>创建时间：{{order.ctime}}</li>
-                                <li>入住日期：{{order.start_date}}</li>
+                                <li>入住日期：{{order.begin_date}}</li>
                                 <li>离开日期：{{order.end_date}}</li>
-                                <li>合计金额：￥{{(order.amount/100.0).toFixed(0)}}(共{{order.days}}晚)</li>
+                                <li>合计金额：￥{{(order.amount/100.0).toFixed(2)}}(共{{order.days}}晚)</li>
                                 <li>订单状态：
                                     <span>
-                                        {{if 0 == order.status}}
+                                        {{if 'WAIT_ACCEPT' == order.status}}
                                             待接单
-                                        {{else if 3 == order.status}}
-                                            待评价
-                                        {{else if 4 == order.status}}
+                                        {{ else if 'WAIT_PAYMENT' ==  order.status}}
+                                            <div id="wait_pay"  order_id="{{ order.order_id }}" class="btn btn-default" type="button">待支付</div>
+                                        {{else if 'WAIT_COMMENT' == order.status}}
+                                            <div id="wait_comment" data-toggle="modal" data-target="#comment-modal" order_id="{{ order.order_id }}" class="btn btn-default" type="button">待评价</div>
+                                        {{else if 'COMPLETE' == order.status}}
                                             已完成
-                                        {{else if 6 == order.status}}
-                                            已拒单
+                                        {{else if 'REJECTED' == order.status}}
+                                            已拒绝
                                         {{/if}}
                                     </span>
                                 </li>
-                                {{if 4 == order.status}}
-                                <li>我的评价： {{order.comment}}</li>
-                                {{else if 6 == order.status}}
+                                {{if 'COMPLETE' == order.status}}
+                                <li>我的评价：{{order.comment}}</li>
+                                {{else if 'REJECTED' == order.status}}
                                 <li>拒单原因： {{order.comment}}</li>
                                 {{/if}}
                             </ul>
@@ -68,7 +70,7 @@
                 </li>
                 {{/each}}
                 {{else}}
-                暂时没有订单。
+                    暂时没有订单。
                 {{/if}}
             </script>
             <div class="modal fade" id="comment-modal" tabindex="-1" role="dialog" aria-labelledby="comment-label">

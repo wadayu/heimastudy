@@ -65,7 +65,7 @@ body {
     border-bottom-right-radius: 5px;
     padding: 10px;
 }
-.order-content>img {
+.order-content>a>img {
     width: 30%;
     vertical-align: top;
 }

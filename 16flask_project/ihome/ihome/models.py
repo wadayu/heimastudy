@@ -5,6 +5,8 @@ from datetime import datetime
 # from ihome import constants
 from . import db
 
+from datetime import datetime
+
 
 class BaseModel(object):
     """模型基类，为每个模型补充创建时间与更新时间"""
@@ -183,3 +185,21 @@ class Order(BaseModel, db.Model):
         ),
         default="WAIT_ACCEPT", index=True)
     comment = db.Column(db.Text)  # 订单的评论信息或者拒单原因
+    trade_no = db.Column(db.String(128), default="") # 支付宝订单号
+
+    def to_basic_dict(self):
+        order_info={
+            'order_id': self.id,
+            'user_id': self.user_id,
+            'house_id': self.house_id,
+            'begin_date': datetime.strftime(self.begin_date,'%Y-%m-%d'),
+            'end_date': datetime.strftime(self.end_date,'%Y-%m-%d'),
+            'days': self.days,
+            'house_price': self.house_price,
+            'amount': self.amount,
+            'status': self.status,
+            'ctime': datetime.strftime(self.create_time,'%Y-%m-%d %H:%M:%S'),
+            'img_url': current_app.config.get('IMAGE_STORAGE_URL') + self.house.index_image_url,
+            'comment': self.comment
+        }
+        return order_info

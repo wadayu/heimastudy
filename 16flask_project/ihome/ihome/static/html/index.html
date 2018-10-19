@@ -24,20 +24,16 @@
             <div class="user-info fr"><span><i class="fa fa-user fa-lg"></i></span> <a class="user-name" href="/my.html"></a></div>
         </div>
         <div class="swiper-container">
+            <script type="text/html" id="index_img">
             <div class="swiper-wrapper">
+                {{ each houses as house }}
                 <div class="swiper-slide">
-                    <a href="/detail.html?id=1"><img src="/static/images/home01.jpg"></a>
-                    <div class="slide-title">房屋标题1</div>
+                    <a href="/detail.html?id={{ house.house_id }}"><img src="{{ house.img_url }}"></a>
+                    <div class="slide-title">{{ house.title }}</div>
                 </div>
-                <div class="swiper-slide">
-                    <a href="/detail.html?id=2"><img src="/static/images/home02.jpg"></a>
-                    <div class="slide-title">房屋标题2</div>
-                </div>
-                <div class="swiper-slide">
-                    <a href="/detail.html?id=3"><img src="/static/images/home03.jpg"></a>
-                    <div class="slide-title">房屋标题3</div>
-                </div>
+                {{ /each }}
             </div>
+            </script>
             <div class="swiper-pagination"></div>
         </div>
         <div class="search-bar">
@@ -54,12 +50,12 @@
                         </div>
                         <div class="modal-body">
                             <div class="area-list">
-                            </div>
                             <script id="area-list-tmpl" type="text/html">
                             {{each areas as k,v}}
                                 <a href="#" area-id="{{v}}">{{k}}</a>
                             {{/each}}
                             </script>
+                            </div>
                         </div>
                     </div>
                 </div>
