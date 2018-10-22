@@ -107,17 +107,16 @@ def order_pay_result():
     # verify
     pay_status = alipay.verify(data, signature)
 
-    if pay_status and data["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED" ):
-        order_id = data.get('out_trade_no')
-        trade_no = data.get('trade_no')
+    order_id = data.get('out_trade_no','')
+    trade_no = data.get('trade_no','')
 
+    if pay_status and data["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED" ):
         try:
             Order.query.order_by(id=order_id).update({'status':'WAIT_COMMENT','trade_no':trade_no})
             db.session.commit()
         except Exception as e:
             current_app.logger.error(e)
-            return jsonify(errno=RET.DBERR,errmsg=u'更新数据失败')
 
-        return jsonify(errno=RET.OK, errmsg='OK')
+        current_app.logger.info('订单（订单号：%s）支付成功' %order_id)
     else:
-        return jsonify(errno=RET.DATAERR, errmsg=u'订单支付失败')
+       current_app.logger.error('订单（订单号：%s）支付失败' %order_id)
