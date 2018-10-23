@@ -1,5 +1,5 @@
 #coding:utf-8
-from flask import g,current_app,request,jsonify
+from flask import g,current_app,request,jsonify,make_response
 from alipay import AliPay
 
 import os
@@ -59,7 +59,6 @@ def order_pay():
 
 #POST /api/v1.0/order/pay/result
 @api.route('/order/pay/result',methods=['POST'])
-@login_required
 def order_pay_result():
     """用户订单的返回结果"""
     data = request.form.to_dict()
@@ -109,14 +108,20 @@ def order_pay_result():
 
     order_id = data.get('out_trade_no','')
     trade_no = data.get('trade_no','')
+    order_id = order_id.encode('utf8')
+    trade_no = trade_no.encode('utf8')
 
-    if pay_status and data["trade_status"] in ("TRADE_SUCCESS", "TRADE_FINISHED" ):
+    if pay_status and data["trade_status"] == "TRADE_SUCCESS":
         try:
-            Order.query.order_by(id=order_id).update({'status':'WAIT_COMMENT','trade_no':trade_no})
+            Order.query.filter_by(id=order_id).update({'status':'WAIT_COMMENT','trade_no':trade_no})
             db.session.commit()
         except Exception as e:
             current_app.logger.error(e)
 
         current_app.logger.info('订单（订单号：%s）支付成功' %order_id)
+        response = make_response('success')
+        return response, 200
     else:
        current_app.logger.error('订单（订单号：%s）支付失败' %order_id)
+       response = make_response('failed')
+       return response, 400

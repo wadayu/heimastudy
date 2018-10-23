@@ -42,6 +42,7 @@ $(document).ready(function(){
 
     $(".modal-accept").click(function () {
         var orderId = $(this).attr('order-id');
+        var obj = $(this)
         $.ajax({
             'url':'/api/v1.0/order/status/' + orderId,
             'type':'put',

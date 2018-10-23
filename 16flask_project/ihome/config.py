@@ -1,5 +1,6 @@
 #coding:utf-8
-import redis
+import redis,os
+
 
 class Config(object):
     # 配置数据库的连接
@@ -18,12 +19,12 @@ class Config(object):
     REDIS_DB = 10
 
     SECRET_KEY = 'n+g1z1rh9i*rhalu_2cqc+m^n7^h@b+_m-4(mlunhh9872nm)pwerq2699w32645865'
-    DEBUG = True
 
 class DeveConfig(Config):
     """开发环境"""
     FDFS_CLIENT_CONF = 'ihome/utils/fdfs/client.conf'
     IMAGE_STORAGE_URL = 'http://192.168.19.131:8888/'
+    DEBUG = True
     pass
 
 class ProdConfig(Config):
