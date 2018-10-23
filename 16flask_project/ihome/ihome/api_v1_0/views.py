@@ -236,7 +236,7 @@ def logout():
     用户退出，删除session
     :return: 0：成功退出 非0：退出失败
     """
-    csrf_token = session['csrf_token']
+    csrf_token = session.get('csrf_token','')
     session.clear()
     session['csrf_token'] = csrf_token
     return jsonify(errno=RET.OK, errmsg=u'退出成功')
