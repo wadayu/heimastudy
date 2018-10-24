@@ -28,15 +28,18 @@ function generateImageCode() {
     $(".image-code img").attr("src", url);
 }
 
+var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+
 function sendSMSCode() {
     $(".phonecode-a").removeAttr("onclick");
     var mobile = $("#mobile").val();
-    if (!mobile) {
+    if (!mobile || !phoneReg.test(mobile)) {
         $("#mobile-err span").html("请填写正确的手机号！");
         $("#mobile-err").show();
         $(".phonecode-a").attr("onclick", "sendSMSCode();");
         return;
-    } 
+    }
+
     var imageCode = $("#imagecode").val();
     if (!imageCode) {
         $("#image-code-err span").html("请填写验证码！");
